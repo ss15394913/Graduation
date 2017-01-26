@@ -1,0 +1,2 @@
+﻿@窪田   package[logic]追加
+	applicationcontroller,applicationcontroller,commandfactory修正

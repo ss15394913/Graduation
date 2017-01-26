@@ -1,0 +1,64 @@
+<web-app>
+	<filter>
+		<filter-name>logincheckfilter</filter-name>
+		<filter-class>filter.LogInCheckFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>logincheckfilter</filter-name>
+		<url-pattern>/leave.jsp</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+		<dispatcher>FORWARD</dispatcher>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>logincheckfilter</filter-name>
+		<url-pattern>/mypage.jsp</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+		<dispatcher>FORWARD</dispatcher>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>logincheckfilter</filter-name>
+		<url-pattern>/userconfig.jsp</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+		<dispatcher>FORWARD</dispatcher>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>logincheckfilter</filter-name>
+		<url-pattern>/orderhistory.jsp</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+		<dispatcher>FORWARD</dispatcher>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>logincheckfilter</filter-name>
+		<url-pattern>/payinput.jsp</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+		<dispatcher>FORWARD</dispatcher>
+	</filter-mapping>
+	
+	
+	<servlet>
+		<servlet-name>test</servlet-name>
+		<servlet-class>TestServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>test</servlet-name>
+		<url-pattern>/test</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>show</servlet-name>
+		<servlet-class>ShowFavTestServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>show</servlet-name>
+		<url-pattern>/show</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>logout</servlet-name>
+		<servlet-class>LogOutServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>logout</servlet-name>
+		<url-pattern>/logout</url-pattern>
+	</servlet-mapping>
+</web-app>

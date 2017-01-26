@@ -1,0 +1,6 @@
+SQL_shopフォルダをc:\sqlに入れて、
+sqlplusで、H27_database_mainを
+sysかsystemユーザーで実行してください。
+
+フォルダを配備した後、以下の行を入力すれば実行できます。
+@ c:\sql\SQL_shop\H27_database_main

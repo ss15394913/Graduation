@@ -1,0 +1,75 @@
+ログインチェック用のフィルタ
+→特定の画面への接続時にチェック(url-pattern)
+・leave・mypage・userconfig・orderhistory・payinput
+
+で未ログイン(セッションスコープに会員情報がない場合)ログイン画面へ遷移
+
+
+ログイン失敗→ログインに失敗したことをセッションスコープに登録
+そのセッション情報を元にjspで「ログインに失敗しました」のメッセージ
+
+
+ログアウト→セッションからログイン情報を削除→top？
+
+*
+String login = session.getAttribute("login");
+    if (login != null){
+      session.setAttribute("status", null);
+    }
+
+
+
+＊LogIn.java
+～メルアド・パスワードの確認処理～
+HttpSession session = req.getSession();
+session.setAttribute("login", "OK");
+ 
+
+＊LogInCheckFilter
+HttpSession session = ((HttpServletRequest)req).getSession();
+
+String flag = (String)session.getAttribute("login");
+
+if(login == null){ //保持されていない(未ログインである)
+	RequestDispatcher disp = req.getRequestDispatcher("/login.jsp");
+	disp.forward(req, res);
+}else{
+	chain.doFilter(req, res);
+}
+
+
+＊web.xml
+<filter>
+	<filter-name>logincheckfilter</filter-name>
+	<filter-class>filter.LogInCheckFilter</filter-class>
+</filter>
+<filter-mapping>
+	<filter-name>logincheckfilter</filter-name>
+	<url-pattern>/leave.jsp</url-pattern>
+	<dispatcher>REQUEST</dispatcher>
+	<dispatcher>FORWARD</dispatcher>
+</filter-mapping>
+<filter-mapping>
+	<filter-name>logincheckfilter</filter-name>
+	<url-pattern>/mypage.jsp</url-pattern>
+	<dispatcher>REQUEST</dispatcher>
+	<dispatcher>FORWARD</dispatcher>
+</filter-mapping>
+<filter-mapping>
+	<filter-name>logincheckfilter</filter-name>
+	<url-pattern>/userconfig.jsp</url-pattern>
+	<dispatcher>REQUEST</dispatcher>
+	<dispatcher>FORWARD</dispatcher>
+</filter-mapping>
+<filter-mapping>
+	<filter-name>logincheckfilter</filter-name>
+	<url-pattern>/orderhistory.jsp</url-pattern>
+	<dispatcher>REQUEST</dispatcher>
+	<dispatcher>FORWARD</dispatcher>
+</filter-mapping>
+<filter-mapping>
+	<filter-name>logincheckfilter</filter-name>
+	<url-pattern>/payinput.jsp</url-pattern>
+	<dispatcher>REQUEST</dispatcher>
+	<dispatcher>FORWARD</dispatcher>
+</filter-mapping>

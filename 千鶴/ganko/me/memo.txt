@@ -1,0 +1,8 @@
+jspでのリソースへのパス
+${pageContext.request.contextPath}
+を頭につける
+
+エラー処理→FrontServletが一括処理？
+
+プロパティファイル(クラス生成時使用)は抽象メソッド名を登録？
+
