@@ -1,0 +1,43 @@
+池田大和
+
+JavaMailAPIダウンロード
+http://www.oracle.com/technetwork/java/index-138643.html
+
+JavaBeans Activation Framework
+JavaMailを利用するにはJavaBeans Activation Framework(JAF)が必要となります。
+http://www.oracle.com/technetwork/jp/java/javaee/tech/index-135046.html
+
+JavaMailでメール送信アプリを作る
+http://www.atmarkit.co.jp/ait/articles/0502/08/news103.html
+
+JavaMail 1.5を使ってみる
+http://d.hatena.ne.jp/Kazuhira/20140201/1391262614
+上記のURLを参考に、JavaMailToLocalhostExample.javaを作成した。
+
+ダウンロードしたjavamail-X.X.zip、jafX_X_X.zip（X.X、X_X_Xはバージョン番号）
+を解凍し、展開されたフォルダ内にあるmail.jar、activation.jarに対して
+クラスパスを設定します。
+set classpath=.\jaf-1.1.1\activation.jar;.\javamail-1.4.5\mail.jar;.
+このクラスパスで、コンパイルできた。
+
+動作確認のために以下のソフトをダウンロードして使用した。
+メール通知テストに便利な“ダミー”のSMTPサーバー「smtp4dev」
+http://www.atmarkit.co.jp/ait/articles/1410/23/news017.html
+
+
+Googleアカウントのメールに送信する方法を確認した。
+http://www.lighthouse-w5.com/index.php/lh-academy/java-programing-menu/53-java-gmail.html
+上記のURLを参考に、SendGMailSample.javaを作成した。
+
+http://qiita.com/rubytomato@github/items/b106ff8011bcad60bce2
+上記のURLを参考に、SendGMailSample2.javaを作成した。
+
+
+
+Propertyのインスタンスに送信先ホストなどの設定を行う。
+メールアドレスの末尾を確認して、例えば
+gmailなら以下の行を実行
+property.put("mail.smtp.host", "smtp.gmail.com");
+Yahoo!メールなら以下の行を実行
+property.put("mail.smtp.host", "smtp.mail.yahoo.co.jp");
+するようにすれば、複数のプロバイダに対応できるはず。
