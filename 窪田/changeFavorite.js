@@ -1,24 +1,18 @@
 $(".favoButton").click(function() {
-  //‰Ÿ‚³‚ê‚½ƒ{ƒ^ƒ“‚Ì“Á’è
   var num = $(this).data("favonum");
   var button = this;
-  //‚¨‹C‚É“ü‚èƒ{ƒ^ƒ“‚Ìdata-condition‚Å§Œä
   if($(this).data('condition') == false){
 
-    //‚¨‹C‚É“ü‚è“o˜^
     $.ajax({
-    	//‚¨‹C‚É“ü‚è‚ğ•ÒW‚·‚éƒRƒ}ƒ“ƒh‚ÌƒpƒX‚ğw’è
+	//ã‚³ãƒãƒ³ãƒ‰ã‚’æŒ‡å®š
       url: '/addFavoriteCommand',
       type: 'POST',
       dataType: 'json',
       data: {favonum: num},
     })
     .done(function(data, textStatus, jqXHR) {
-      //“o˜^¬Œ÷
       if(data.result == true){
-        //‚¨‹C‚É“ü‚èƒ{ƒ^ƒ“‚ÌF‚ğ‰©F‚É
         $(button).css('backgroundColor', '#FF0');
-        //‚¨‹C‚É“ü‚èƒ{ƒ^ƒ“ó‘Ô‚ÌXV
         $(button).data('condition',true);
       }
     })
@@ -30,7 +24,7 @@ $(".favoButton").click(function() {
 
   else if($(this).data('condition') == true){
 
-    //‚¨‹C‚É“ü‚è“o˜^‰ğœ
+    //?Â¨?C??u?e?o?^?d??
     $.ajax({
       url: '/removeFavoriteCommand',
       type: 'POST',
@@ -38,11 +32,11 @@ $(".favoButton").click(function() {
       data: {favonum: num},
     })
     .done(function(data, textStatus, jqXHR) {
-      //“o˜^‰ğœ¬Œ÷
+      //?o?^??ï¿¢?Ã·
       if(data.result == true){
-        //”wŒiF‚ğ‰ğœ
+        //?w?i?F?d?d??
         $(button).css('backgroundColor', '');
-        //‚¨‹C‚É“ü‚èƒ{ƒ^ƒ“ó‘Ô‚ÌXV
+        //?Â¨?C??u?e?{?^???o???X?V
         $(button).data('condition',false);
       }
     })
