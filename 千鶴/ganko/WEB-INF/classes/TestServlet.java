@@ -14,10 +14,6 @@ public class TestServlet extends HttpServlet {
 		String email = req.getParameter("email");
 		String pass = req.getParameter("pass");
 		
-		String target = new String(req.getRequestURL());
-		HttpSession session = req.getSession();
-		session.setAttribute("target", target);
-		
 		MemberBean user = new MemberBean();
 		user.setMemberEmail(email);
 		user.setMemberPassword(pass);
@@ -29,6 +25,7 @@ public class TestServlet extends HttpServlet {
 		
 		LogIn.checkLogIn(user, req);
 		
+		HttpSession session = req.getSession();
 		RequestDispatcher dis = req.getRequestDispatcher((String)session.getAttribute("target"));
 		
 		dis.forward(req, res);

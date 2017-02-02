@@ -44,7 +44,7 @@
 		<url-pattern>/test</url-pattern>
 	</servlet-mapping>
 	
-	<servlet>
+<!--	<servlet>
 		<servlet-name>show</servlet-name>
 		<servlet-class>ShowFavTestServlet</servlet-class>
 	</servlet>
@@ -60,5 +60,5 @@
 	<servlet-mapping>
 		<servlet-name>logout</servlet-name>
 		<url-pattern>/logout</url-pattern>
-	</servlet-mapping>
+	</servlet-mapping>	-->
 </web-app>

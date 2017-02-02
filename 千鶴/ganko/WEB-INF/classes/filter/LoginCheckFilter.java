@@ -1,3 +1,8 @@
+/*
+  @author 池田千鶴
+  @date 2017/02/01
+*/
+
 package filter;
 
 import java.io.IOException;
@@ -12,29 +17,38 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-public class LogInCheckFilter implements Filter{
+/* ログインが必要な特定のページに移動する際のログインチェックを行うフィルター */
+/* フィルターが動作するjsp:leave /mypage /userconfig /orderhistory /payinput */
+public class LogInCheckFilter implements Filter {
 	private FilterConfig config;
 	
-	public void init(FilterConfig config)throws ServletException{
+	/* 初期化 */
+	public void init(FilterConfig config)throws ServletException {
 		this.config = config;
 	}
+	/* 死ぬやつ */
+	public void destroy() {}
 	
-	public void destroy(){}
-	
+	/* 実際に動くやつ */
 	public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain)
-	throws ServletException, IOException{
+	throws ServletException, IOException {
 		System.out.println("--LogInCheckFilter--");
 		
+		/* セッションからログイン情報を取得 */
 		HttpSession session = ((HttpServletRequest)req).getSession();
-		
 		String login = (String)session.getAttribute("login");
-		System.out.println("login="+login);
+		System.out.println("login=" + login);
 		
-		if(login == null || !("OK".equals(login))){ //未ログインである
-			RequestDispatcher dis = req.getRequestDispatcher("/login.jsp");
-			session.setAttribute("target", ((HttpServletRequest)req).getRequestURI());
+		/* 未ログイン・ログインに失敗した場合、
+			セッションに移動先情報を登録し再度ログイン画面へ飛ばす */
+		if(login == null || "".equals(login) || "NG".equals(login)) {
+			RequestDispatcher dis = req.getRequestDispatcher("/filterlogin.jsp");
+			session.setAttribute
+				("target", (((HttpServletRequest)req).getServletPath()));
+			System.out.println("target="+session.getAttribute("target"));
 			dis.forward(req, res);
-		}else{
+		/* ログイン済の場合、元の移動先へ飛ばす */
+		}else {
 			chain.doFilter(req, res);
 		}
 	}
