@@ -25,6 +25,7 @@ conn shop_admin /admin
 @ c:\sql\SQL_shop\H27_database_table
 @ c:\sql\SQL_shop\H27_database_sequence
 @ c:\sql\SQL_shop\H27_database_view
+@ c:\sql\SQL_shop\H27_database_alter
 
 set serveroutput on
 BEGIN

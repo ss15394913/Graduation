@@ -28,6 +28,11 @@ PRIMARY KEY(member_id,product_id)
 product_catalog_viewの追加。
 名前が重複しない、商品の一覧を返す。
 
+01/31
+purchase_order表に、列purchase_order_payment_methodを追加。
+SQL_shopフォルダに、H27_database_alter.sqlを追加した。
+それを実行することで列を追加できる。
+
 
 
 

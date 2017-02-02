@@ -54,4 +54,39 @@ public abstract class CommandFactory {
 		}
 		return command;
 	}
+	
+	/**
+	 *@see CommandFactory#getCommand
+	 *@param key 特定のコマンドに対応するキー値
+	 *@return 引数で指定したキー値に対応した、
+	 *        AbstractCommandのサブクラスのインスタンス
+	 *@exception LogicException ビジネスロジックレイヤで発生した例外のラッパー
+	 */
+	public static AbstractCommand getCommand(String key) throws LogicException {
+		AbstractCommand command = null;
+		Properties properties = new Properties();
+		
+		try {
+			properties.load(new FileInputStream(FILE_PATH));
+			
+			String className = properties.getProperty(key);
+			
+			Class c = Class.forName(className);
+			
+			command = (AbstractCommand) c.newInstance();
+		}catch(FileNotFoundException e) {
+			throw new LogicException(e.getMessage(), e);
+		}catch(IOException e) {
+			throw new LogicException(e.getMessage(), e);
+		}catch(ClassNotFoundException e) {
+			throw new LogicException(e.getMessage(), e);
+		}catch(InstantiationException e) {
+			throw new LogicException(e.getMessage(), e);
+		}catch(IllegalAccessException e) {
+			throw new LogicException(e.getMessage(), e);
+		}catch(Exception e) {
+			throw new LogicException(e.getMessage(), e);
+		}
+		return command;
+	}
 }

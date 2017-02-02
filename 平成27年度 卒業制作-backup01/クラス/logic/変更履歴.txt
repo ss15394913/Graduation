@@ -1,2 +1,4 @@
 ﻿@窪田   package[logic]追加
 	applicationcontroller,applicationcontroller,commandfactory修正
+@宮崎	各クラスの修正、コンパイル
+	RequestContext系クラスにSession管理用メソッドの追加

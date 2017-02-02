@@ -2,11 +2,12 @@ package logic;
 
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 /**
  *@className WebRequestContext
  *@author Fumihiro Miyazaki
- *@date 2017/01/26
+ *@date 2017/02/01
  *@description HTTP通信のリクエスト情報をラップするクラス
  */
 public class WebRequestContext implements RequestContext {
@@ -16,6 +17,8 @@ public class WebRequestContext implements RequestContext {
 	private Map parameters;
 	/**HTTPServletでのリクエスト情報*/
 	private HttpServletRequest request;
+	/**HTTPServletでのセッション情報*/
+	private HttpSession session;
 	
 	/**
 	 *@see WebRequestContext#WebRequestContext
@@ -59,6 +62,32 @@ public class WebRequestContext implements RequestContext {
 	public void setRequest(Object request) {
 		this.request = (HttpServletRequest)request;
 		
+		session = this.request.getSession();
+		
 		parameters = this.request.getParameterMap();
+	}
+	
+	/**
+	 *@see WebRequestContext#setSessionAttribute
+	 *@param key セッションスコープに登録したい値に、対応したキー値
+	 *@param value セッションスコープに登録したい値
+	 */
+	public void setSessionAttribute(String key, Object value) {
+		session.setAttribute(key, value);
+	}
+
+	/**
+	 *@see WebRequestContext#getSessionAttribute
+	 *@return セッションに登録されている、キー値に対応した値
+	 */
+	public Object getSessionAttribute(String key) {
+		return session.getAttribute(key);
+	}
+
+	/**
+	 *@see WebRequestContext#removeSessionAttribute
+	 */
+	public void removeSessionAttribute(String key) {
+		session.removeAttribute(key);
 	}
 }

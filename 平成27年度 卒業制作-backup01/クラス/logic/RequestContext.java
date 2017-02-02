@@ -3,7 +3,7 @@ package logic;
 /**
  *@className RequestContext
  *@author Fumihiro Miyazaki
- *@date 2017/01/25
+ *@date 2017/01/26
  *@description リクエストに関するクラスのラッパークラス
  */
 public interface RequestContext {
@@ -32,4 +32,17 @@ public interface RequestContext {
 	 *@param request クライアントからのリクエスト情報
 	 */
 	public void setRequest(Object request);
+	
+	/**
+	 *@see WebRequestContext#setSessionAttribute
+	 *@param key セッションスコープに登録したい値に対応したキー値
+	 *@param value セッションスコープに登録したい値
+	 */
+	public void setSessionAttribute(String key, Object value);
+
+	/**
+	 *@see WebRequestContext#getSessionAttribute
+	 *@return セッションスコープに登録されている、キー値に対応した値
+	 */
+	public Object getSessionAttribute(String key);
 }
