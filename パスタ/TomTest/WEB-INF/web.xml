@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+    version="2.4">
+
+
+<servlet>
+	<servlet-name>CartProductServlet</servlet-name>
+	<servlet-class>CartProductServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+	<servlet-name>CartProductServlet</servlet-name>
+	<url-pattern>/cartServlet</url-pattern>
+</servlet-mapping>
+
+
+<servlet>
+	<servlet-name>EditCartServlet</servlet-name>
+	<servlet-class>EditCartServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+	<servlet-name>EditCartServlet</servlet-name>
+	<url-pattern>/EditCart</url-pattern>
+</servlet-mapping>
+
+
+<servlet>
+	<servlet-name>cart</servlet-name>
+	<jsp-file>/cart.jsp</jsp-file>
+</servlet>
+
+<servlet-mapping>
+	<servlet-name>cart</servlet-name>
+	<url-pattern>/cart</url-pattern>
+</servlet-mapping>
+
+<servlet>
+	<servlet-name>start</servlet-name>
+	<jsp-file>/start.jsp</jsp-file>
+</servlet>
+
+<servlet-mapping>
+	<servlet-name>start</servlet-name>
+	<url-pattern>/start</url-pattern>
+</servlet-mapping>
+
+<servlet>
+	<servlet-name>product</servlet-name>
+	<jsp-file>/product.jsp</jsp-file>
+</servlet>
+
+<servlet-mapping>
+	<servlet-name>product</servlet-name>
+	<url-pattern>/product</url-pattern>
+</servlet-mapping>
+
+
+<servlet>
+	<servlet-name>leave</servlet-name>
+	<jsp-file>/leave.jsp</jsp-file>
+</servlet>
+
+<servlet-mapping>
+	<servlet-name>leave</servlet-name>
+	<url-pattern>/leave</url-pattern>
+</servlet-mapping>
+
+
+<servlet>
+	<servlet-name>leaveCheck</servlet-name>
+	<jsp-file>/leaveCheck.jsp</jsp-file>
+</servlet>
+
+<servlet-mapping>
+	<servlet-name>leaveCheck</servlet-name>
+	<url-pattern>/leaveCheck</url-pattern>
+</servlet-mapping>
+
+
+<servlet>
+	<servlet-name>LeaveServlet</servlet-name>
+	<servlet-class>LeaveServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+	<servlet-name>LeaveServlet</servlet-name>
+	<url-pattern>/LeaveServlet</url-pattern>
+</servlet-mapping>
+
+</web-app>
