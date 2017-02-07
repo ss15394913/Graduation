@@ -40,8 +40,8 @@ ShowLeaveCheck→ボタンクリック→Leave→完了jsp.redirect→top
 
 
 ＊商品一覧
-ソート←えいじゃっくす？かShowProductsListを変える？
-お気に入り←えいじゃっくす？
+○ソート←えいじゃっくす？かShowProductsListを変える？
+○お気に入り←えいじゃっくす？
 
 
 ＊商品詳細
@@ -50,11 +50,15 @@ AddProductsToCart→完了jsp.redirect→ShowCart→cart
 
 ＊カート
 削除ボタン→DeleteCart→完了jsp.redirect→ShowCart→cart
-編集ボタン→EditCart→
+編集ボタン→フォームが切り替わる(jsp)→EditCart→完了jsp.redirect→ShowCart→Cart
+ログイン→orderlogin.jsp→OrderLogIn→完了jsp.redirect→ShowCart→Cart
+会員登録してから→同じような画面をもいっこ作ってセッションの保存時間を1440！！！！！
 
 
-＊
+＊支払い画面
+ボタン→OrderCheck→注文確認
 
-めも
++めも+
 SignUpをEntryに変更
 EditCartをDeleteCartに変更
+1440
