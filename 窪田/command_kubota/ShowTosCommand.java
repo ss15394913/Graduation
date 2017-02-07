@@ -1,4 +1,4 @@
-﻿/*
+/*
   @author 窪田遥月
   @date 2017/02/07
 */
@@ -11,7 +11,6 @@ import logic.WebRequestContext;
 
 import ex.LogicException;
 
-/* ただ飛ばすマンのひな形コマンド */
 public class ShowTosCommand extends AbstractCommand {
 	public ResponseContext execute(ResponseContext responseContext)
 	throws LogicException{

@@ -1,6 +1,6 @@
-﻿/*
-  @author 窪田遥月
-  @date 2017/02/07
+/*
+  @author �E�c�y��
+   @date 2017/02/07
 */
 
 package command;
@@ -11,7 +11,6 @@ import logic.WebRequestContext;
 
 import ex.LogicException;
 
-/* ただ飛ばすマンのひな形コマンド */
 public class ShowCartCommand extends AbstractCommand {
 	public ResponseContext execute(ResponseContext responseContext)
 	throws LogicException{

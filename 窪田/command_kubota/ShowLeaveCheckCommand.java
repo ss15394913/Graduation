@@ -1,5 +1,5 @@
-﻿/*
-  @author 窪田遥月
+/*
+  @author �E�c�y��
   @date 2017/02/07
 */
 
@@ -11,7 +11,6 @@ import logic.WebRequestContext;
 
 import ex.LogicException;
 
-/* ただ飛ばすマンのひな形コマンド */
 public class ShowLeaveCheckCommand extends AbstractCommand {
 	public ResponseContext execute(ResponseContext responseContext)
 	throws LogicException{
