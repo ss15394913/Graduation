@@ -1,0 +1,4 @@
+${pageContext.request.contextPath}/images
+
+を先頭に記述(じゃないとパスがわからなくなる)
+※DBに/wear/huku.jpgみたいに登録されてる前提で
