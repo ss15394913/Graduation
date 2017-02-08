@@ -1,0 +1,27 @@
+<%@ page language="java" contentType="text/html; charset=windows-31J"
+	pageEncoding="windows-31J"%>
+
+<!DOCTYPE html>
+
+<html lang="ja">
+	<head>
+		<meta charset="Windows-31J">
+		<title>This is cart</title>
+		
+		<script>
+		</script>
+		
+		<style>
+		</style>
+		
+	</head>
+	<body >
+		<a href="productdetail.html" >商品詳細</a>
+		<a href="payinput.html" >支払い情報</a>
+		
+		
+		
+		
+		
+	</body>
+</html>

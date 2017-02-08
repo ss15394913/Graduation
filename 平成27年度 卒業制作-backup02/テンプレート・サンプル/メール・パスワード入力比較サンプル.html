@@ -1,0 +1,75 @@
+<html>
+<head>
+	<script src="inputDestruction.js" charset="UTF-8"></script>
+</head>
+<body>
+	<form>
+	  <div>
+	    <label for="emailInput">メール:</label>
+	  </div>
+	  <div>
+	    <input type="email" id="emailInput" autocomplete="email" required />
+	  </div>
+	  <div>
+	    <label for="emailConfirm">メール確認用:</label>
+	  </div>
+	  <div>
+	    <input type="email" id="emailConfirm" autocomplete="email" required oninput="CheckEmail(this)" />
+	  </div>
+	  <p>
+	    <input type="submit" id="submit">
+	  </p>
+	</form>
+	<br>
+	<form>
+	  <div>
+	    <label for="passInput">パスワード:</label>
+	  </div>
+	  <div>
+	    <input type="password" id="passInput" required />
+	  </div>
+	  <div>
+	    <label for="passConfirm">パスワード確認用:</label>
+	  </div>
+	  <div>
+	    <input type="password" id="passConfirm" required oninput="CheckPass(this)" />
+	  </div>
+	  <p>
+	    <input type="submit" id="submit">
+	  </p>
+	</form>
+	
+	<br><br>
+	<a href="http://labyrinth-of-wisdom.hatenadiary.com/entry/2016/07/19/104115" target="_blank">http://labyrinth-of-wisdom.hatenadiary.com/entry/2016/07/19/104115</a><br>
+	<a href="https://ics.media/entry/11221" target="_blank">https://ics.media/entry/11221</a>
+	
+	<script language="JavaScript" type="text/javascript">
+	<!--
+	  function CheckEmail(input){
+	    var mail = emailInput.value; //メールフォームの値を取得
+	    var mailConfirm = input.value; //メール確認用フォームの値を取得(引数input)
+
+	    // 一致確認
+	    if(mail != mailConfirm){
+	      input.setCustomValidity('メールアドレスが一致しません'); // エラーメッセージのセット
+	    }else{
+	      input.setCustomValidity(''); // エラーメッセージのクリア
+	    }
+	  }
+	// -->
+	<!--
+	  function CheckPass(input){
+	    var pass = passInput.value; //パスワードフォームの値を取得
+	    var passConfirm = input.value; //パスワード確認用フォームの値を取得(引数input)
+
+	    // 一致確認
+	    if(pass != passConfirm){
+	      input.setCustomValidity('パスワードが一致しません'); // エラーメッセージのセット
+	    }else{
+	      input.setCustomValidity(''); // エラーメッセージのクリア
+	    }
+	  }
+	// -->
+	</script>
+</body>
+</html>

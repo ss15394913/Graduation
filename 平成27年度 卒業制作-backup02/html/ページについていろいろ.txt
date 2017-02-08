@@ -1,0 +1,61 @@
+﻿// 対象の要素を取得 ( → <input type="checkbox" id="target"> )
+var element = document.getElementById( "target" ) ;
+
+// チェックが付いているか判定 ( → false )
+var isChecked = element.checked ;
+
+・支払い項目入力画面
+   ・ユーザは項目をすべて入力
+   ・確認画面へ移行するボタンを押したときに↑を実行。
+   ☆☆・ラジオボタン（配達希望日、配達希望時間、代金支払い方法）☆☆
+
+・お届け先情報
+   ・ログインしているときのみ↓
+   ・届け先の住所が、会員情報と同じでいいならチェックボックスで「届け先に変更はありません」←みたいな感じ
+   ・チェックボックスにチェックがないときは、確認ボタン押したときにすべての項目に入力されてるか確認
+   
+   ・ログインされていない場合
+   	・全て入力されているかチェックだけ
+   	
+・支払い確認画面
+   ・届け先変更がない場合は住所を表示する
+   ・変更されてるなら、それを表示
+   
+   
+      ・入力する
+・name(名前)
+	・text
+・kana(カタカナ)
+	・text
+・zip_code(郵便番号)
+	・text
+・address(住所)
+	・text
+・prefecture(県)
+	・text
+・city(市区町村)
+	・text
+・street_number(番地)
+	・text
+・building_name(建物名(部屋番号も書く))
+	・text
+・delivery_request_day(配達希望日)
+	・ラジオボタン {3,4,5,6,7}
+・delivery_request_time(配達希望時間)
+	・ラジオボタン {指定なし,午前,12~14,14~16,16~18,18~20,20~21}
+・phone_number(電話番号)
+	・text(10桁or11桁)
+
+・クレジット情報
+   ・card_number(カード番号(16桁))
+	・text
+   ・security_code(カード裏　３桁or４桁)
+	・text
+   ・year(有効期限：年)
+	・text
+   ・month(有効期限：月)
+	・text
+	
+・商品代引き　324円（？）未会員・未登録なら入力
+
+///クレジット・配達は必要ないかも///
