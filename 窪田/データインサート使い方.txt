@@ -1,0 +1,2 @@
+﻿classpath.txt の中身コピペ
+java ExcelDataToDb 実行
