@@ -99,16 +99,16 @@
 
 <h3>お支払い方法</h3>
 
-・配達希望日：
-<select name="number">
-<option value="three">3営業日後</option>
-<option value="four">4営業日後</option>
-<option value="five">5営業日後</option>
-<option value="six">6営業日後</option>
-<option value="week">一週間後</option>
-</select>
+<form method="post" action="example.cgi">
+
+<input type="radio" name="q1" value="はい"> 代引き
 <br>
-<hr>
+<input type="radio" name="q1" value="いいえ"> カード払い
+
+</form>
+<br>
+<p><input type="submit" value="送信する"></p>
+
 
 </div>
 <!--/sub-->
