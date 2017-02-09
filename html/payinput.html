@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<title>カート</title>
+<title>お支払い情報</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="copyright" content="Template Party">
 <meta name="description" content="ここにサイト説明を入れます">
@@ -61,91 +61,55 @@
 
 <section>
 
-<h2 class="type1">カート</h2>
+<h3>お届け先情報</h3>
 
-<h3>フライトジャケット</h3>
+氏名：<input type="text" name="氏名" value="かわのひろき" />
+<br>
+郵便番号：〒<input type="text" name="郵便番号" value="164-0003" />
+<br>
+住所：<input type="text" name="住所" value="なかの" size="60" />
+<br>
+電話番号：<input type="text" name="電話番号" value="810-1919-9014" />
+<br>
+<br>
 
-    <section class="list">
-    <a href="productdetail.html">
-    <figure><img src="images/outer1.png" alt="商品名"></figure>
-    </a>
-    </section>
+<h3>配送時間指定</h3>
 
-<span style="font-size: 21px;">　color/darkbrown</span>
-
-<span style="font-size: 21px;">　　size/S</span>
-<p><font size="3"><em>　\10,000(税込)</em></font></p>
-<span>　数量</span>
+・配達希望日：
 <select name="number">
-<option value="one">1</option>
-<option value="two">2</option>
-<option value="three">3</option>
+<option value="three">3営業日後</option>
+<option value="four">4営業日後</option>
+<option value="five">5営業日後</option>
+<option value="six">6営業日後</option>
+<option value="week">一週間後</option>
 </select>
-<span id="type1_right"><p>
-<input type="button" value="削除">
-</p></span>
-<p>
-<input type="button" value="編集">
-</p>
+<br>
 
-<h3>フィールドジャケット</h3>
-
-    <section class="list">
-    <a href="productdetail.html">
-    <figure><img src="images/outer2.png" alt="商品名"></figure>
-    </a>
-    </section>
-
-<span style="font-size: 21px;">　color/brack</span>
-<span style="font-size: 21px;">　　size/M</span>
-<p><font size="3"><em>　\10,000(税込)</em></font></p>
-<span>　数量</span>
+・配達希望時間：
 <select name="number">
-<option value="one">1</option>
-<option value="two">2</option>
-<option value="three">3</option>
+<option value="three">指定なし</option>
+<option value="four">午前</option>
+<option value="five">12～14</option>
+<option value="six">14～16</option>
+<option value="week">16～18</option>
+<option value="week">18～20</option>
+<option value="week">20～21</option>
 </select>
-<span id="type1_right"><p>
-<input type="button" value="削除">
-</p></span>
-
-<p>
-<input type="button" value="編集">
-</p>
-
-<table class="ta1">
-    <tr>
-    <th>合計金額</th>
-    <td>\20,000</td>
-    </tr>
-    </table>
-
 <br><br>
+
+<h3>お支払い方法</h3>
+
+・配達希望日：
+<select name="number">
+<option value="three">3営業日後</option>
+<option value="four">4営業日後</option>
+<option value="five">5営業日後</option>
+<option value="six">6営業日後</option>
+<option value="week">一週間後</option>
+</select>
+<br>
 <hr>
-<br><br>
-<h1>ログインして購入</h1>
-<th>
-Email
-</th>
-<td>
-<input type="text" name="user_id" value="" size="24">
-</td>
-<th>
-Password
-</th>
-<td>
-<input type="password" name="password" value="" size="24">
-<br>
-</td>
 
-<p>
-<input type="button" value="ログイン">
-</p>
-
-
-<br>
-<h1>会員登録せず購入</h1>
-<a href="payinput.html"><img src="images/no_member.png" width="240" height="80"alt="New Menber Resist"></a>
 </div>
 <!--/sub-->
 
