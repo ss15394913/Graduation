@@ -132,6 +132,10 @@ nav#menubar ul li a:hover {
 	color: #FFF;		/*文字色*/
 }
 
+span#type1_right {
+	float: right;
+}
+
 /*ドロップダウンメニュー用
 ---------------------------------------------------------------------------*/
 ul.ddmenu {
@@ -559,22 +563,24 @@ footer a:hover {
 	background: linear-gradient(#4b4b4b, #333);			/*同上*/
 }
 
+
+
 /*inputボタンの設定
 ---------------------------------------------------------------------------*/
 input[type="submit"],
 input[type="button"],
 input[type="reset"] {
-	width: 250px;	/*ボタン幅*/
-	padding: 10px;	/*ボタン内の余白*/
+	width: 100px;	
+	padding: 10px;	
 	margin-bottom: 20px;
-	border-radius: 30px;	/*角丸のサイズ*/
-	background: #e5e5e5;	/*背景色（古いブラウザだとここの色のみが出ます）*/
-	background: -webkit-gradient(linear, left top, left bottom, from(#FFF), to(#e5e5e5));	/*グラデーション*/
-	background: -webkit-linear-gradient(#FFF, #e5e5e5);	/*同上*/
-	background: linear-gradient(#FFF, #e5e5e5);			/*同上*/
-	font-size: 16px;	/*文字サイズ*/
+	border-radius: 30px;	
+	background: #e5e5e5;	
+	background: -webkit-gradient(linear, left top, left bottom, from(#FFF), to(#e5e5e5));	
+	background: -webkit-linear-gradient(#FFF, #e5e5e5);	
+	background: linear-gradient(#FFF, #e5e5e5);			
+	font-size: 16px;	
 	letter-spacing: 0.1em;
-	border: 1px solid #999;	/*枠線の幅、線種、色*/
+	border: 1px solid #999;	
 }
 /*ボタンのマウスオン時の設定*/
 input[type="submit"]:hover,
