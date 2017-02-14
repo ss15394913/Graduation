@@ -1,0 +1,12 @@
+conf\server.xmlの、
+70行目あたりに、
+<Connector port="8080" protocol="HTTP/1.1"
+から始まる要素がある。
+
+これの最後の属性の、
+useBodyEncodingForURI="true"
+を、
+URIEncoding="UTF-8"
+に、変更する。
+
+これにより内部で文字化けが起こらなくなり、検索機能が使用できるようになる。
