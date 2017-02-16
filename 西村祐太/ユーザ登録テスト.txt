@@ -1,0 +1,21 @@
+INSERT INTO member_status
+VALUES(0,'未会員');
+INSERT INTO member_status
+VALUES(1,'通常会員');
+INSERT INTO member_status
+VALUES(2,'退会済');
+
+INSERT INTO member
+VALUES(member_id_seq.NEXTVAL,'小栗旬','オグリシュン',
+'1640003','東京都中野区東中野1-34-11','0120117117',SYSDATE,'oguri@gmail.com',
+'oguri1192',0);
+
+INSERT INTO member
+VALUES(member_id_seq.NEXTVAL,'登坂広臣','トサカヒロオミ',
+'231000','神奈川県横浜市中区新港1-1','08011011011',SYSDATE,'ttt@gmail.com',
+'ttt1192',1);
+
+INSERT INTO member
+VALUES(member_id_seq.NEXTVAL,'山田孝之','ヤマダタカユキ',
+'3510111','埼玉県和光市下新倉5-11-1','08001203421',SYSDATE,'yamada@gmail.com',
+'yamada1192',2);
