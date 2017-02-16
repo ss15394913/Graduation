@@ -1,0 +1,46 @@
+<web-app>
+	<servlet>
+		<servlet-name>frontservlet</servlet-name>
+		<servlet-class>logic.FrontServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>frontservlet</servlet-name>
+		<url-pattern>/front/*</url-pattern>
+	</servlet-mapping>
+
+	
+	<filter>
+		<filter-name>logincheckfilter</filter-name>
+		<filter-class>filter.LogInCheckFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>logincheckfilter</filter-name>
+		<url-pattern>/leave.jsp</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+		<dispatcher>FORWARD</dispatcher>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>logincheckfilter</filter-name>
+		<url-pattern>/mypage.jsp</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+		<dispatcher>FORWARD</dispatcher>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>logincheckfilter</filter-name>
+		<url-pattern>/userconfig.jsp</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+		<dispatcher>FORWARD</dispatcher>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>logincheckfilter</filter-name>
+		<url-pattern>/orderhistory.jsp</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+		<dispatcher>FORWARD</dispatcher>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>logincheckfilter</filter-name>
+		<url-pattern>/payinput.jsp</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+		<dispatcher>FORWARD</dispatcher>
+	</filter-mapping>
+</web-app>
