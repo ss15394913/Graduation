@@ -1,19 +1,23 @@
+<%@page pageEncoding="UTF-8"
+ contentType="text/html;charset=UTF-8"%>
+
 <!doctype html>
 <html lang="ja">
 <head>
-<meta charset="utf-8">
-<title>会員登録</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="copyright" content="Template Party">
-<meta name="description" content="ここにサイト説明を入れます">
-<meta name="keywords" content="キーワード１,キーワード２,キーワード３,キーワード４,キーワード５">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
-<!--[if lt IE 9]>
-<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-<style>.ddmenu {display: none;}</style>
-<![endif]-->
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/openclose.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/ddmenu_min.js"></script>
+ <meta charset="utf-8">
+ <title>会員登録</title>
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta name="copyright" content="Template Party">
+ <meta name="description" content="ここにサイト説明を入れます">
+ <meta name="keywords" content="キーワード１,キーワード２,キーワード３,
+  キーワード４,キーワード５">
+ <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+ <!--[if lt IE 9]>
+ <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+ <style>.ddmenu {display: none;}</style>
+ <![endif]-->
+ <script type="text/javascript" src="${pageContext.request.contextPath}/js/openc lose.js"></script>
+ <script type="text/javascript" src="${pageContext.request.contextPath}/ddmenu_m in.js"></script>
 </head>
 
 <body id="top" class="c1">
@@ -21,7 +25,8 @@
 <div id="container">
 
 <header>
-<h1 id="logo"><a href="${pageContext.request.contextPath}/front/top"><img src="${pageContext.request.contextPath}/images/logo.png" width="370" height="60" alt="Sample Online Shop"></a></h1>
+<h1 id="logo"><a href="${pageContext.request.contextPath}/front/top">
+<img src="${pageContext.request.contextPath}/images/logo.png" width="370" height="60" alt="Sample Online Shop"></a></h1>
 <div class="headermenu">
 <ul>
 <a href="${pageContext.request.contextPath}/front/userentry">会員登録</a>
@@ -147,7 +152,4 @@ if (OCwindowWidth() < 480) {
 </script>
 
 </body>
-</html>
-
-	</body>
 </html>

@@ -8,6 +8,6 @@
      </head>
      <body>
           <center><img src="${pageContext.request.contextPath}/images/logincomp.png" width="600" height="350"alt="New Menber Resist"></a></center>
-          <center><p>※3秒後に自動的にページが移動します。引き続き支払い情報の入力をお願い致します。</p>
+          <center><p>※3秒後に自動的にページが移動します。引き続き支払い情報の入力をお願い致します。</p></center>
      </body>
   </html>
