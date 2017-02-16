@@ -1,49 +1,80 @@
--Command-
-//ShowTop
-//ShowCart
-//ShowMyPage
-//ShowQuestion
-//ShowContact
-//ShowUserEntry
-
-//ShowCompanyInfo
-//ShowTos
-//ShowSiteMap
-//ShowPrivacyPolicy
-
-//ShowUserConfig
-//ShowLeaveCheck
-
-//ShowDeal
+-Command-　・-新規　＊-作成中　要変更　//-終了
+//ShowContactComp(お問い合わせ情報を送信しない)
 
 CheckEntry(新規会員登録→会員登録確認の情報を渡す)
-・TemporaryEntry(会員登録確認→仮登録　データ書き込む方)
-・CompleteEntry(メール→本登録)
+TemporaryEntry(会員登録確認→仮登録　データ書き込む方)
+CompleteEntry(メール→本登録)
 ＊EditCart(今あるEdit→Deleteになるから編集用のコマンド)
-・Contact(お問い合わせ情報を送信)
-
+CartLogIn
 
 
 
 --jsp--
-LoginComplete.html→logincomp.html
-LogoutComplete.html→logoutcomp.html
-WithdrawalComplete.html→leavecomp.html
-CartAddComplete.html→cartaddcomp.html
-CartDeleteComplete.html→cartdelcomp.html
-CartEditComplete.html→carteditcomp.html
+/accounteditcomp.html(アカウント設定の変更が完了)
+/logincomp.html(ログイン完了)
+/logoutcomp.html(ログアウト完了)
+/cartaddcomp.html
+/cartdeletecomp.html
+/carteditcomp.html
+・contactcomp.html
 
 
-+めも+
-SignUpをEntryに変更
-○EditCartをDeleteCartに変更
-セッションの保存時間の変更できるようにして1440
+
+
+
+
+　|動作確認|　　○　・　×		/存在
+/SignUp
+/・LogIn						千鶴
+/LogOut						千鶴
+/FilterLogInCommand			千鶴
+/Leave
+/・UserStatus				宮崎
+/EditAccountInfomation
+/・ShowPurchaseHistory		河野
+//AddFavorite				宮崎
+//DeleteFavorite			宮崎
+/・ShowProductsList			大和
+/・ShowProductDetail			大和
+/NonMenberPurchase
+/・AddProductsToCart			塩澤
+/EditCart
+/DeleteCart
+/OrderDataConfirmation
+/OrderExecution
+
+×CheckEntry
+×TemporaryEntry
+×CompleteEntry
+×EditCart
+
+/ShowTop
+/ShowCart
+/ShowQuestion
+/ShowContact
+/ShowUserEntry
+/ShowCompanyInfo
+/ShowTos
+/ShowSiteMap
+/ShowPrivacyPolicy
+/ShowUserConfig
+/ShowDeal
+/ShowLeaveCheck
+/ShowContactComp
+
+
+
+
++めも+　○-完了　＊-作業中　・-未
+＊SignUpをEntryに変更
+○UserStatusをShowMyPageに変更・元ShowMyPageを削除
+＊EditCartをDeleteCartに変更(中身が削除コマンドだったから)
+・セッションの保存時間の変更できるようにして1440
 何秒後かに移動(redirect)
-ぱんくず
+・ぱんくず
 
-product表の変更(サイズ・色ごとに行が増えて、そのぶんidの桁が増える)画像ファイル名の変更
 
-↑に伴って用意したデータの変更
-メールどうなってるか
-商品一覧・商品詳細コマンドの作り直し
-コマンドの動作確認
+＊色とサイズ別にするからデータ変更
+・メールどうなってるか
+＊商品一覧・商品詳細コマンドの作り直し
+＊コマンドの動作確認

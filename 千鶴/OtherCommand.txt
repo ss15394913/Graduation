@@ -1,22 +1,25 @@
-＊ヘッダー
-Show～
-Top
-Cart
-MyPage
-Question
-Contact
-UserEntry
+○とりあえずよい
+/あとここだけ
 
-LogIn→完了jsp.redirect→ShowMypage
-LogOut→完了jsp.redirect→ShowTop
+＊ヘッダー
+○Show～
+　Top
+　Cart
+　MyPage
+　Question
+　Contact
+　UserEntry
+
+○LogIn→完了jsp.redirect→ShowMypage
+○LogOut→完了jsp.redirect→ShowTop
 
 
 ＊フッター
-Show～
-CompanyInfo
-Tos
-SiteMap
-PrivacyPolicy
+○Show～
+　CompanyInfo
+　Tos
+　SiteMap
+　PrivacyPolicy
 
 
 ＊新規会員登録→会員登録確認
@@ -28,15 +31,15 @@ CompleteEntry
 
 
 ＊まいぺ＾＾じ
-Show～
-UserConfig
-LeaveCheck
+○Show～
+　UserConfig
+　LeaveCheck
 
 ＊アカウント設定
-確認ダイアログ→EditAccountInfomation→完了jsp.redirect→ShowMyPage
+確認ダイアログ→EditAccountInfomation→/完了jsp.redirect→ShowMyPage
 
 ＊退会
-ShowLeaveCheck→ボタンクリック→Leave→完了jsp.redirect→ShowTop
+ShowLeaveCheck→leavecheck→ボタンクリック→Leave→完了jsp.redirect→ShowTop
 
 
 ＊商品一覧
@@ -45,7 +48,7 @@ ShowLeaveCheck→ボタンクリック→Leave→完了jsp.redirect→ShowTop
 
 
 ＊商品詳細
-AddProductsToCart→完了jsp.redirect→ShowCart
+/AddProductsToCart→完了jsp.redirect→ShowCart
 
 
 ＊カート
@@ -56,11 +59,11 @@ AddProductsToCart→完了jsp.redirect→ShowCart
 
 
 ＊支払い画面
-ボタン→OrderDataConfirmation→注文確認
+○ボタン→OrderDataConfirmation→注文確認
 会員・非会員で別ページ
 
 ＊注文確認
-注文確定→OrderExecution→注文完了
+○注文確定→OrderExecution→注文完了
 
 ＊お問い合わせ
 送信ボタン→Contact→ありがとうございました
