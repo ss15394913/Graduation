@@ -9,6 +9,6 @@
      <body>
           <center>
           <img src="${pageContext.request.contextPath}/images/entrytemp.png" width="600" height="350"alt="New Menber Resist"></a></center>
-          <center><p>※ブラウザを閉じてメールをご確認下さい。</p>
+          <center><p>※ブラウザを閉じてメールをご確認下さい。</p></center>
      </body>
   </html>

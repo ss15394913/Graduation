@@ -61,6 +61,7 @@
                     <ul class="ddmenu">
                         <li><a href="${pageContext.request.contextPath}/front/contact">お問い合わせ</a></li>
                         <li><a href="${pageContext.request.contextPath}/front/question">Q&A</a></li>
+                    </ul>
                 </li>
             </ul>
         </nav>
@@ -134,9 +135,9 @@
 
         <!--スマホ用更新情報-->
         <script type="text/javascript">
-if (OCwindowWidth() < 480) {
-	open_close("newinfo_hdr", "newinfo");
-}
+			if (OCwindowWidth() < 480) {
+			open_close("newinfo_hdr", "newinfo");
+			}
         </script>
 
 </body>

@@ -66,17 +66,7 @@
             </ul>
         </nav>
 
-
-
-        <html>
-
-
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
+        <br><br><br><br><br><br>
 
 
         <table border="0" cellspacing="40" cellpadding="6" align="center">
@@ -98,9 +88,7 @@
                     <ul class="slk1">
                         <a href="${pageContext.request.contextPath}/front/productlist"><li><font color="blue"><u>PANTS</u></font></li></a>
                         <a href="${pageContext.request.contextPath}/front/productlist"><li><font color="blue"><u>DENIM</u></font></li></a>
-                        <br>
-                        <br>
-                        <br>
+                        <br><br><br>
                     </ul>
                 </td>
 
@@ -111,8 +99,7 @@
                         <a href="${pageContext.request.contextPath}/front/productlist"><li><font color="blue"><u>BOXER</u></font></li></a>
                         <a href="${pageContext.request.contextPath}/front/productlist"><li><font color="blue"><u>TRUNKS</u></font></li></a>
                         <a href="${pageContext.request.contextPath}/front/productlist"><li><font color="blue"><u>SOX</u></font></li></a>
-                        <br>
-                        <br>
+                        <br><br>
                     </ul>
                 </td>
 
@@ -122,8 +109,7 @@
                         <a href="${pageContext.request.contextPath}/front/productlist"><li><font color="blue"><u>SNEAKERS</u></font></li></a>
                         <a href="${pageContext.request.contextPath}/front/productlist"><li><font color="blue"><u>SANDALS</u></font></li></a>
                         <a href="${pageContext.request.contextPath}/front/productlist"><li><font color="blue"><u>BOOTS</u></font></li></a>
-                        <br>
-                        <br>
+                        <br><br>
                     </ul>
                 </td>
 
@@ -140,12 +126,7 @@
 
             </tr>
         </table>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
+        <br><br><br><br><br><br>
 
         <p id="pagetop"><a href="#">↑ PAGE TOP</a></p>
 
@@ -160,8 +141,7 @@
                     <a href="${pageContext.request.contextPath}/front/deal">　　　特定商取引法</a>
                     <a href="${pageContext.request.contextPath}/front/contact">　　　お問い合わせ</a>
                     <a href="${pageContext.request.contextPath}/front/question">　　　Q&A</a>
-                    <br>
-                    <br>
+                    <br><br>
                 </ul>
 
         </footer>

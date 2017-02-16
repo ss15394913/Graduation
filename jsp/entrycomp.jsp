@@ -9,6 +9,6 @@
      <body>
           <center>
           <img src="${pageContext.request.contextPath}/images/entrycomp.png" width="600" height="350"alt="New Menber Resist"></a></center>
-          <center><p>※3秒後に自動的にページが移動します</p>
+          <center><p>※3秒後に自動的にページが移動します</p></center>
      </body>
   </html>

@@ -216,9 +216,9 @@
     <!--スマホ用メニューバー-->
     <img src="${pageContext.request.contextPath}/images/icon_bar.png" width="20" height="23" alt="" id="menubar_hdr" class="close">
     <script type="text/javascript">
-if (OCwindowWidth() < 480) {
-	open_close("menubar_hdr", "menubar");
-}
+		if (OCwindowWidth() < 480) {
+		open_close("menubar_hdr", "menubar");
+		}
     </script>
 
 </body>

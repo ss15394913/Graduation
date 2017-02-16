@@ -33,6 +33,7 @@
                 <div id="cart">
                     <a href="#">CART</a>
                 </div>
+            </div>
         </header>
 
         <nav id="menubar">
@@ -61,6 +62,7 @@
                     <ul class="ddmenu">
                         <li><a href="${pageContext.request.contextPath}/front/contact">お問い合わせ</a></li>
                         <li><a href="${pageContext.request.contextPath}/front/question">Q&A</a></li>
+                    </ul>
                 </li>
             </ul>
         </nav>
@@ -195,8 +197,7 @@
                 <a href="${pageContext.request.contextPath}/front/deal">　　　特定商取引法</a>
                 <a href="${pageContext.request.contextPath}/front/contact">　　　お問い合わせ</a>
                 <a href="${pageContext.request.contextPath}/front/question">　　　Q&A</a>
-                <br>
-                <br>
+                <br><br>
             </ul>
     </footer>
 
