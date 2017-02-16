@@ -1,0 +1,71 @@
+﻿01/12
+orderがDBでの予約語だったため、
+orderを含む名前の表や列の名前を、
+purchase_order...に変更した。
+
+「セーター・カーディガン」というサブカテゴリ名が
+半角20文字以上であるため、
+sub_category表のsub_category_name列の桁数を20から30に変更した。
+
+01/17
+product_information_viewのFROM句を、
+new_product_viewを参照するように変更した。
+
+purchase_ranking_viewが返すデータが仕様と異なっていた
+（同じ名前の商品が購入された回数を合計した結果を返すべきだが、
+個々の商品詳細毎の購入回数を返してしまっていた）
+ので、仕様通りのデータを返すように変更した。
+
+01/19
+先日指摘があった、お気に入りを重複して登録できてしまう
+問題を解消するため、favorite表に複合主キーを追加した。
+ALTER TABLE favorite
+ADD CONSTRAINT pk_favorite_both_id
+PRIMARY KEY(member_id,product_id)
+;
+
+01/26
+product_catalog_viewの追加。
+名前が重複しない、商品の一覧を返す。
+
+01/31
+purchase_order表に、列purchase_order_payment_methodを追加。
+SQL_shopフォルダに、H27_database_alter.sqlを追加した。
+それを実行することで列を追加できる。
+
+02/16
+member表に、列member_entry_codeを追加。
+H27_database_alter.sqlを実行することで列を追加できる。
+
+
+
+--窪田さんが担当した部分
+
+CREATE TABLE TAG(
+tag_id number(3) primary key,
+tag_name varchar2(40) not null,
+product_id number(8) foreign key(product)
+);
+
+CREATE TABLE favorite(
+member_id number(10) foreign key(member),
+product_id number(8) foreign key(product)
+);
+
+CREATE TABLE member_status(
+ member_status_id number(1) primary key,
+ member_status_name varchar2(20) unique not null,
+);
+
+CREATE MEMBER member(
+ member_id number(10) primary key,
+ member_name varchar2(100) not null,
+ member_kana varchar2(100) not null,
+ member_zip_code varchar2(7) not null,
+ member_address varchar2(400) not null,
+ member_phone_number varchar2(11) not null,
+ member_birthday date,
+ member_email varchar(256) not null,
+ member_password varchar2(32),
+ member_status_id number(1) foreign key(member_status)
+);
