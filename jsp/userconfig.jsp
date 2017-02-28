@@ -70,32 +70,37 @@
             <form id="registform" class="h-adr" action="" method="post">
                 <br><br><br>
                 <h3>アカウント設定編集</h3>
-                性<input type="text" name="firstname" required>
+                性<input type="text" name="firstname" value="${data.fName}" required>
                 &nbsp;&nbsp;&nbsp;
-                名<input type="text" name="lastname" required>&nbsp;&nbsp;例：山田 太郎<br><br>
+                名<input type="text" name="lastname" value="${data.lName}" required>&nbsp;&nbsp;例：山田 太郎<br><br>
 
-                セイ<label><input type="text" value="" name="kanafirstname" pattern="^[ァ-ン]+$" required></label>
+                セイ<label><input type="text" name="kanafirstname" pattern="^[ァ-ン]+$" value="${data.fKana}" required></label>
                 &nbsp;&nbsp;&nbsp;
-                メイ<label><input type="text" value="" name="kanalastname" pattern="^[ァ-ン]+$" required></label>
+                メイ<label><input type="text" name="kanalastname" pattern="^[ァ-ン]+$" value="${data.lKana}" required></label>
                 &nbsp;&nbsp;例：ヤマダ タロウ
                 <br><br>
-                生年月日<input type="date" name="birthday" required>&nbsp;&nbsp;例:2000/01/01<br><br>
+                生年月日<input type="date" name="birthday" value="${data.birth}" required>&nbsp;&nbsp;例:2000/01/01<br><br>
                 <span class="p-country-name" style="display:none;">Japan</span>
 
-                〒郵便番号<input type="text" class="p-postal-code" size="7" maxlength="7" autocomplete="postal-code" required>&nbsp;例:1648787<br><br>
+                〒郵便番号<input type="text" class="p-postal-code" size="7" maxlength="7" 
+                			autocomplete="postal-code" value="${data.post}" required>&nbsp;例:1648787<br><br>
 
-                都道府県<input type="text" class="p-region" autocomplete="address-level1" readonly required />&nbsp;例：東京都<br>
-                市区町村<input type="text" class="p-locality" autocomplete="address-level2" required />&nbsp;例：中野区<br>
-                番地<input type="text" class="p-street-address" autocomplete="address-line1" required />&nbsp;例：東中野4-2-3<br>
-                建物名<input type="text" class="p-extended-address" autocomplete="address-line2" required />&nbsp;例：専門学校東京テクニカルカレッジ<br><br>
+                都道府県<input type="text" class="p-region" autocomplete="address-level1"
+                			value="${data.add1}" readonly required />&nbsp;例：東京都<br>
+                市区町村<input type="text" class="p-locality" autocomplete="address-level2"
+                			value="${data.add2}" required />&nbsp;例：中野区<br>
+                番地<input type="text" class="p-street-address" autocomplete="address-line1"
+                			value="${data.add3}" required />&nbsp;例：東中野4-2-3<br>
+                建物名<input type="text" class="p-extended-address" autocomplete="address-line2"
+                			value="${data.add4}" required />&nbsp;例：専門学校東京テクニカルカレッジ<br><br>
 
-                電話番号<input type="text" name="phone_number" required>例：0120444906<br><br>
+                電話番号<input type="text" name="phone_number" value="${data.phone}" required>例：0120444906<br><br>
                 <div>
                     <label for="emailInput">メールアドレス</label>&nbsp;&nbsp;例：example@example.com
                 </div>
 
                 <div>
-                    <input type="email" id="emailInput" autocomplete="email" maxlength="256" required />
+                    <input type="email" id="emailInput" autocomplete="email" maxlength="256" value="${data.email}" required />
                 </div>
 
                 <div>
@@ -103,7 +108,8 @@
                 </div>
 
                 <div>
-                    <input type="email" id="emailConfirm" autocomplete="email" required onblur="CheckEmail(this)" />
+                    <input type="email" id="emailConfirm" autocomplete="email" maxlength="256" value="${data.email}" required
+                    	onblur="CheckEmail(this)" />
                 </div>
 
                 <div>
