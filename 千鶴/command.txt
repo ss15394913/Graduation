@@ -1,38 +1,33 @@
 	『ConcreteCommand』
-SignUp…新規登録する。					辻橋
+SignUp…新規登録する。								辻橋
 
-LogIn…ログインする。					千鶴
-LogOut…ログアウトする。				千鶴
+LogIn…ログインする。								千鶴
+LogOut…ログアウトする。							千鶴
 
-FilterLogInCommand…フィルター用ログイン		千鶴
+FilterLogInCommand…フィルター用ログイン			千鶴
 
-Leave…退会する。					塩澤
+Leave…退会する。									塩澤
 
-UserStatus…会員情報の表示をする。			河野
+UserStatus…会員情報の表示をする。					河野
 EditAccountInfomation…会員情報の編集をする。		辻橋
 
-ShowPurchaseHistory…購入履歴の表示をする。		河野
+ShowPurchaseHistory…購入履歴の表示をする。			河野
 
-○ShowFavorite…お気に入りの表示			宇津野
-○AddFavorite…商品をお気に入りの追加			宇津野
-○DeleteFavorite…お気に入り商品の削除			宇津野
+○ShowFavorite…お気に入りの表示					宇津野
+○AddFavorite…商品をお気に入りの追加				宇津野
+○DeleteFavorite…お気に入り商品の削除				宇津野
 
-ShowProductsList…商品リストを取得する。		河野
+ShowProductsList…商品リストを取得する。			河野
 
 ShowProductDetail…商品の詳細情報を取得する。		大和
 
-NonMenberPurchase…非会員の注文				窪田
+NonMenberPurchase…非会員の注文						窪田
 
 ーIdentification…購入処理前に本人確認を行う		千鶴
 
 ○AddProductsToCart…カートに商品を追加する。		塩澤・河野
-○ShowCart…カートの中身を閲覧する。			塩澤・河野
-EditCart…カートの編集をする。				塩澤
+○ShowCart…カートの中身を閲覧する。				塩澤・河野
+EditCart…カートの編集をする。						塩澤
 
-OrderDataConfirmation…支払いから注文確認		大和
-OrderExecution…注文確認から完了			大和
-
-//・Payment（抽象クラス）…支払い方法の抽象クラス 	大和
-//	支払いを確定する処理を記述する。
-// -PayByCredit…クレジット支払い
-// -PayByCash…代引き支払い
+OrderDataConfirmation…支払いから注文確認			大和
+OrderExecution…注文確認から完了					大和
