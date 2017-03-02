@@ -89,6 +89,11 @@ data : List<Map> 【${data}】
 		<input type="hidden" name="itemcount" value="3">商品個数
 		<input type="submit" value="idが2の商品を注文">
 	</form>
+	<form action="${pageContext.request.contextPath}/front/addcart" method="post">
+		<input type="number" name="productid" value="2">商品ID
+		<input type="number" name="itemcount">商品個数
+		<input type="submit" value="商品を複数注文">
+	</form>
 <footer>
 <div class="footermenu">
 <ul>
