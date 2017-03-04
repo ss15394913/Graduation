@@ -1,6 +1,8 @@
 /*
   @author 池田千鶴
   @date 2017/02/09
+  @author 池田大和
+  @date 2017/03/04
 */
 
 package command;
@@ -46,7 +48,8 @@ public class LogInCommand extends AbstractCommand {
 				データベース内に存在しなかった場合 */
 			if(flag){
 				System.out.println("メールアドレスが違います");		//ここを書き換えてjspに表示したい(余裕があれば)
-				reqc.setSessionAttribute("login", "NG");
+				/*reqc.setSessionAttribute("login", "NG") となっていたが03/04時点で変更 by池田大和*/
+				reqc.setSessionAttribute("login","");
 			}
 
 			/* ここからフィルター機能に近い動作 */
