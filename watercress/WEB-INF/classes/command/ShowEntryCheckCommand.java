@@ -15,6 +15,11 @@ import logic.ResponseContext;
  *@author Kohichi Tujihashi
  *@date 2017/03/03
  *@description
+ 
+ *@author 池田大和
+ *@date 2017/03/03
+ *@description 正しくページ分岐するように変更
+ 
  */
 /**/
 public class ShowEntryCheckCommand extends AbstractCommand{
@@ -49,6 +54,11 @@ public class ShowEntryCheckCommand extends AbstractCommand{
 
 		/*MemberBeanを生成*/
 		MemberBean memberbean  = new MemberBean();
+		
+		/*03/04追加。入力されたメールアドレスが登録されていたデータと
+		  重複しているかを表す変数*/
+		boolean emailIsDuplicated = false;
+		
 
 		OraMemberDao memberdao = new OraMemberDao();
 		//member情報を登録させるdaoのインスタンスを生成
@@ -63,7 +73,11 @@ public class ShowEntryCheckCommand extends AbstractCommand{
 			for(int i=0;i<memberlist.size();i++){
 				allMember=(MemberBean)memberlist.get(i);
 				if(allMember.getMemberEmail().equals(memberEmail)){
+					/*03/03以前のコード
 					responseContext.setTarget( "userentry" );
+					break;
+					*/
+					emailIsDuplicated = true;
 					break;
 				}
 			}
@@ -119,9 +133,13 @@ public class ShowEntryCheckCommand extends AbstractCommand{
 				/*AppricationControllerのsetAttributeに
 				登録するためにsetResultメソッドを使ってsessionを登録*/
 				responseContext.setResult(memberData);
-				/*登録確認ページに移動*/
-				responseContext.setTarget( "entrycheck" );
-
+				if(emailIsDuplicated){
+					/*メールアドレスが重複しているなら元の画面に戻る*/
+					responseContext.setTarget( "userentry" );
+				}else{
+					/*重複していないなら登録確認ページに移動*/
+					responseContext.setTarget( "entrycheck" );
+				}
 		return responseContext;
 	}
 }
