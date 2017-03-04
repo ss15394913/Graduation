@@ -174,7 +174,7 @@
 						-->
 					</article>
 					
-					<a id="cartIn">
+					<a href="${pageContext.request.contextPath}/front/addcart" id="cartIn">
 						<img src="${pageContext.request.contextPath}/images/cartin.png" width="240" height="80" alt="Cart in">
 					</a>
 					

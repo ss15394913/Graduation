@@ -39,11 +39,9 @@ public class AddCartCommand extends AbstractCommand{
 
 			/*商品詳細ページで選択された商品の、商品IDがカートに追加される*/
 			String searchProductId = req.getParameter( "productid" )[0];
-			System.out.println("searchProductIdは"+searchProductId);
 
 			/*商品詳細ページで選択された商品の注文個数が入る*/
 			String itemCount = req.getParameter( "itemcount" )[0];
-			System.out.println("itemcountは"+itemCount);
 
 			/*カートの有無を判断するflag*/
 			String flag = "ok";
@@ -61,7 +59,6 @@ public class AddCartCommand extends AbstractCommand{
 
 			/*セッションにcartがあるか判断*/
 			if(req.getSessionAttribute( "cart" ) != null ){
-				System.out.println("cartある");
 				/*セッションにcartが存在しているので、とってくる*/
 				cart = (ArrayList)req.getSessionAttribute( "cart" );
 				for(int i = 0;i < cart.size();i++){
@@ -76,22 +73,13 @@ public class AddCartCommand extends AbstractCommand{
 					cart内に入っているMapを取ってくる
 					*/
 					localM = (HashMap)cart.get(i);
-					if(localM == null){
-						System.out.println("localMがnullです@cartあります内");
-					}
 
 					loopS = localM.get("productId");
-					if(loopS == null){
-						System.out.println("loopSがnullです@cartあります内");
-					}
 					
-					System.out.println("これはloopS:"+loopS);
-					System.out.println("これはsearchProductId:"+searchProductId);
 					/*for文で回されているloopSの中に、商品詳細ページから追加された商品のproductIdで、すでに存在しているカート内に同じproductIdを持っている商品が無いか探す。
 					すでにproductIdが登録されていた場合は注文数のみの変更になる*/
 					if(loopS.equals(searchProductId)){
 						
-						System.out.println("商品の注文数だけ変更");
 						req.setSessionAttribute("str",new String("選択された商品はすでに追加されているので、注文数のみ変更しました。"));
 						
 						
@@ -113,14 +101,8 @@ public class AddCartCommand extends AbstractCommand{
 					noProductId="ng";
 				}
 			}
-			/*if(noProductId.equals("ng")){
-				System.out.println("存在しないproductIdです");
-				flag = "ng";
-			}*/
 			/*カート内に商品を入れる*/
 			if(flag.equals("ok")){
-				System.out.println("cartない");
-				System.out.println("商品を追加するifの中");
 				req.setSessionAttribute("str",new String("商品を追加しました"));				AbstractDaoFactory factory = AbstractDaoFactory.getFactory();
 				ProductInformationDao productDao = factory.getProductInformationDao();
 				ProductImageDao productImageDao = factory.getProductImageDao();
@@ -137,7 +119,6 @@ public class AddCartCommand extends AbstractCommand{
 						tempProductId = pinfob.getProductId();
 						/*idが一致したらproductInformationに商品の情報を入れていく*/
 						if(searchProductId.equals( tempProductId )){
-							System.out.println(pinfob.getProductName());
 							productInformation.put("productId",pinfob.getProductId());
 							productInformation.put("productName",pinfob.getProductName());
 							productInformation.put("productPrice",String.valueOf(pinfob.getProductPrice()));

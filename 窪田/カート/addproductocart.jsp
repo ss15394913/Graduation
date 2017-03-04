@@ -22,7 +22,7 @@ data : List<Map> 【${data}】
 		<meta name="copyright" content="Template Party">
 		<meta name="description" content="ここにサイト説明を入れます">
 		<meta name="keywords" content="キーワード１,キーワード２,キーワード３,キーワード４,キーワード５">
-		<link rel="stylesheet" type="text/css" href="../css/style.css" />
+		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/front/css/style.css" />
 		<!--[if lt IE 9]>
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<style>.ddmenu {display: none;}</style>

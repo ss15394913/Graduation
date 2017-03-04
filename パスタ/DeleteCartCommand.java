@@ -55,7 +55,6 @@ public class DeleteCartCommand extends AbstractCommand {
 
 			/*商品詳細ページで選択された商品の、商品IDがカートに追加される*/
 			String searchProductId = req.getParameter( "productid" )[0];
-			System.out.println("searchProductIdは"+searchProductId);
 			
 			
 			
@@ -93,25 +92,13 @@ public class DeleteCartCommand extends AbstractCommand {
 				cart内に入っているMapを取ってくる
 				*/
 				localM = (HashMap)cart.get(i);
-				if(localM == null){
-					System.out.println("localMがnullです@cartあります内");
-				}
-					loopS = localM.get("productId");
-				if(loopS == null){
-				System.out.println("loopSがnullです@cartあります内");
-				}
+				loopS = localM.get("productId");
 				//cart.remove(i);
-				System.out.println("これはloopS:"+loopS);
-				System.out.println("これはsearchProductId:"+searchProductId);
 				/*for文で回されているloopSの中に、商品詳細ページから追加された商品のproductIdで、すでに存在しているカート内に同じproductIdを持っている商品が無いか探す。
 				すでにproductIdが登録されていた場合は注文数のみの変更になる*/
 				if(loopS.equals(searchProductId)){
-					System.out.println("商品の注文数だけ変更");
 					req.setSessionAttribute("str",new String("選択された商品をカート内から削除しました。"));
-					
-					
-					
-					
+
 					/*そのすでに存在しているproductIdを持っているproductInformationに、商品注文数のみ変更したlocalMで上書き*/
 					productInformation = localM;
 					

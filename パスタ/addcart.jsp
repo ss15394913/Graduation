@@ -26,7 +26,6 @@
 		
 	</head>
 	<body >
-	<h1>ここはaddcart.jspです</h1>
 		<p>${sessionScope.str}</p>
 			<c:forEach var="product" items="${cart}">
 				<section>

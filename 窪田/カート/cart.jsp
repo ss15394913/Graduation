@@ -77,7 +77,6 @@
 			
 			<div id="contents">
 				<div id="main">
-					<!--ここから商品-->
 					<c:forEach var="product" items="${sessionScope.cart}">
 						<section>
 							<h2 class="type1">カート</h2>

@@ -116,6 +116,7 @@
 
                 <div>
                     <input type="password" id="passInput" pattern="^[0-9A-Za-z]+$" required />
+                    <input type="hidden" name="hiddenPassword" id="hiddenPassword" value="">
                     <input id="passCheckBox" type="checkbox" onclick="CheckPass();" required>パスワードのチェックをする
                 </div>
 
