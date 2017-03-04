@@ -337,7 +337,7 @@ public class ShowProductsListCommand extends AbstractCommand{
 		  ログイン中の会員のお気に入り商品のIDのリスト*/
 		List memberFavoriteList = new ArrayList();
 		/*会員がログインしているなら、お気に入りの商品のIDを取得する*/
-		if(loginMemberId != -1){
+		if(allFavoriteList != null && loginMemberId != -1){
 			Iterator favoriteIterator = allFavoriteList.iterator();
 			while(favoriteIterator.hasNext()){
 				FavoriteBean favorite
