@@ -1,0 +1,30 @@
+注文実行の処理の際に
+セッションスコープに登録する必要がある情報の一覧
+注文する商品のIDの配列
+String[] orderProductsId =
+(String[])requestContext.getSessionAttribute("orderproducts");
+
+注文する商品の個数の配列
+String[] orderCountsAttribute =
+(String[])requestContext.getSessionAttribute("ordercounts");
+
+支払い方法 String
+purchaseOrder.setPurchaseOrderPaymentMethod(
+(String)requestContext.getSessionAttribute("paymentmethod"));
+
+会員でない場合の注文情報
+String memberName
+= (String)requestContext.getSessionAttribute("firstName")
++ " " + (String)requestContext.getSessionAttribute("lastName");
+String memberKana
+= (String)requestContext.getSessionAttribute("kanaFirstName")
++ " " + (String)requestContext.getSessionAttribute("kanaLastName");
+String memberAddress
+= (String)requestContext.getSessionAttribute("prefectures") + " "
++ (String)requestContext.getSessionAttribute("municipality") + " "
++ (String)requestContext.getSessionAttribute("address") + " "
++ (String)requestContext.getSessionAttribute("buildingName");
+String memberZipCode
+= (String)requestContext.getSessionAttribute("memberZipCode");
+String memberPhoneNumber
+= (String)requestContext.getSessionAttribute("memberPhoneNumber");
