@@ -70,7 +70,6 @@
 					</li>
 				</ul>
 			</nav><br><br>
-			
 			<form id="registform" class="h-adr" action="${pageContext.request.contextPath}/front/entrytemp" method="post">
 				性　：　${data.firstName}<input type="hidden" name="firstName" value="${data.firstName}">&nbsp;&nbsp;&nbsp;
 				名　：　${data.lastName}<input type="hidden" name="lastName" value="${data.lastName}">&nbsp;&nbsp;<br><br>

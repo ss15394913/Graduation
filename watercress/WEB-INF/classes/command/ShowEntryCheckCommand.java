@@ -15,11 +15,11 @@ import logic.ResponseContext;
  *@author Kohichi Tujihashi
  *@date 2017/03/03
  *@description
- 
+
  *@author 池田大和
  *@date 2017/03/03
  *@description 正しくページ分岐するように変更
- 
+
  */
 /**/
 public class ShowEntryCheckCommand extends AbstractCommand{
@@ -54,11 +54,11 @@ public class ShowEntryCheckCommand extends AbstractCommand{
 
 		/*MemberBeanを生成*/
 		MemberBean memberbean  = new MemberBean();
-		
+
 		/*03/04追加。入力されたメールアドレスが登録されていたデータと
 		  重複しているかを表す変数*/
 		boolean emailIsDuplicated = false;
-		
+
 
 		OraMemberDao memberdao = new OraMemberDao();
 		//member情報を登録させるdaoのインスタンスを生成
@@ -121,7 +121,9 @@ public class ShowEntryCheckCommand extends AbstractCommand{
 				memberData.put("add1", add[0]);
 				memberData.put("add2", add[1]);
 				memberData.put("add3", add[2]);
-				memberData.put("add4", add[3]);
+				if(add.length == 4){
+					memberData.put("add4", add[3]);
+				}
 
 				String birth = memberbean.getMemberBirthday().replaceAll("/","-");
 				memberData.put("birth", birth);

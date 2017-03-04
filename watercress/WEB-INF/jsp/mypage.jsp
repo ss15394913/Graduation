@@ -117,7 +117,7 @@
 						<div style="width:740px; height:350px; overflow-x:auto;">
 							<c:forEach var="favoriteMap" items="${favoriteInfoList}">
 								<section class="list">
-									<a href="${pageContext.request.contextPath}/front/item">
+									<a href="${pageContext.request.contextPath}/front/productdetail?productName=${favoriteMap.productBean.productName}">
 										<figure><img src="${pageContext.request.contextPath}/images/${favoriteMap.productsImageBean.productImagePath}"></figure>
 										<h4>${favoriteMap.productBean.productName}<br>￥ ${favoriteMap.productBean.productPrice}</h4>
 									</a>
@@ -131,7 +131,7 @@
 						<div style="width:740px; height:350px; overflow-x:auto;">
 							<c:forEach var="adviceMap" items="${adviceInfoList}">
 								<section class="list">
-									<a href="${pageContext.request.contextPath}/front/item">
+									<a href="${pageContext.request.contextPath}/front/productdetail?productName=${adviceMap.productBean.productName}">
 										<figure><img src="${pageContext.request.contextPath}/images/${adviceMap.productsImageBean.productImagePath}"></figure>
 										<h4>${adviceMap.productBean.productName}<br>￥ ${adviceMap.productBean.productPrice}</h4>
 										<span class="osusume">SALE</span>
@@ -147,10 +147,10 @@
 					<nav class="box1">
 						<h2>MENU</h2>
 						<ul class="submenu mb10">
-							<li><a href="${pageContext.request.contextPath}/front/top">TOP</a></li>
+							<li><a href="${pageContext.request.contextPath}/front/mypage">TOP</a></li>
 							<li><a href="${pageContext.request.contextPath}/front/userconfig">アカウント設定</a></li>
-							<li><a href="${pageContext.request.contextPath}/front/purchasehistory">購入履歴</a></li>
-							<li><a href="${pageContext.request.contextPath}/front/leavecomp">退会手続き</a></li>
+							<li><a href="${pageContext.request.contextPath}/front/orderhistory?pageNum=1">購入履歴</a></li>
+							<li><a href="${pageContext.request.contextPath}/front/leave">退会手続き</a></li>
 						</ul>
 					</nav>
 				</div>
@@ -176,7 +176,7 @@
 			</div>
 			
 			<div align="center">
-				<small>Copyright&copy; <a href="${pageContext.request.contextPath}/front/index">Sample Online Shop</a>　All Rights Reserved.</small>
+				<small>Copyright&copy; <a href="${pageContext.request.contextPath}/front/top">Sample Online Shop</a>　All Rights Reserved.</small>
 				<span class="pr"><a href="http://template-party.com/" target="_blank">Web Design:Template-Party</a></span>
 			</div>
 		</footer>

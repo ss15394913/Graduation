@@ -7,9 +7,11 @@
 	</head>
 	
 	<body>
-		<div align="center"><img src="${pageContext.request.contextPath}/images/cartadd.png"width="600" height="350"alt="New Menber Resist"></a></div>
-		<div align="center"><p>※3秒後に自動的にページが移動します</p></div>
-
+		<div align="center">
+			<img src="${pageContext.request.contextPath}/images/cartadd.png"width="600" height="350"alt="New Menber Resist"></a>
+			<p>※3秒後に自動的にページが移動します</p>
+		</div>
+		
 		<script>
 			function move(){
 				location.href="${pageContext.request.contextPath}/front/cart";	//URLを指定

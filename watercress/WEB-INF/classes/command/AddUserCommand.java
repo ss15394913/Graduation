@@ -46,6 +46,9 @@ public class AddUserCommand extends AbstractCommand{
 				//member情報を登録させるdaoのインスタンスを生成
 				memberdao.editMember(memberbean);
 
+				/*ログイン処理*/
+				reqc.setSessionAttribute("login", String.valueOf(memberbean.getMemberId()));
+
 				/*登録確認ページに移動*/
 				responseContext.setTarget( "entrycomp" );
 			}else{

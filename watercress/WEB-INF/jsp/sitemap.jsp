@@ -25,8 +25,9 @@
 		<div id="container">
 		
 			<header>
-				<h1 id="logo"><a href="${pageContext.request.contextPath}/front/top">
-					<img src="${pageContext.request.contextPath}/images/logo.png" width="370" height="60" alt="Sample Online Shop"></a></h1>
+				<h1 id="logo">
+					<img src="${pageContext.request.contextPath}/images/logo.png" width="275" alt="Sample Online Shop" onclick="showTop()">
+				</h1>
 				<div class="headermenu">
 					<ul>
 						<a href="${pageContext.request.contextPath}/front/userentry">会員登録</a>

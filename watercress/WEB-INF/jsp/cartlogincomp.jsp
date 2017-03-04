@@ -8,8 +8,10 @@
 	</head>
 	
 	<body>
-		<div align="center"><img src="${pageContext.request.contextPath}/images/logincomp.png" width="600" height="350"alt="New Menber Resist"></a></div>
-		<div align="center"><p>※3秒後に自動的にページが移動します。引き続き支払い情報の入力をお願い致します。</p></div>
+		<div align="center">
+			<img src="${pageContext.request.contextPath}/images/logincomp.png" width="600" height="350"alt="New Menber Resist"></a>
+			<p>※3秒後に自動的にページが移動します。引き続き支払い情報の入力をお願い致します。</p>
+		</div>
 		
 		<script>
 			function move(){

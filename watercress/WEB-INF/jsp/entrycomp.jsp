@@ -13,7 +13,7 @@
 		
 		<script>
 			function move(){
-				location.href="${pageContext.request.contextPath}/front/top";	//URLを指定
+				location.href="${pageContext.request.contextPath}/front/mypage";	//URLを指定
 			}
 			setTimeout("move()", 3000);					//3秒後に実行
 		</script>

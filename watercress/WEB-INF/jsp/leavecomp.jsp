@@ -8,7 +8,9 @@
 	</head>
 	
 	<body>
-		<center><img src="${pageContext.request.contextPath}/images/leavecomp.png" width="600" height="350"alt="New Menber Resist"></a>
-				<p id="pagetop"><a href="${pageContext.request.contextPath}/front/top">PAGE TOP</a></p></center>
+		<div align="center">
+			<img src="${pageContext.request.contextPath}/images/leavecomp.png" width="600" height="350"alt="New Menber Resist"></a>
+			<p id="pagetop"><a href="${pageContext.request.contextPath}/front/top">PAGE TOP</a></p>
+		</div>
 	</body>
 </html>

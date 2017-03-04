@@ -17,13 +17,15 @@
 		<![endif]-->
 		<script type="text/javascript" src="${pageContext.request.contextPath}/js/openclose.js"></script>
 		<script type="text/javascript" src="${pageContext.request.contextPath}/js/ddmenu_min.js"></script>
+		<script type="text/javascript" src="${pageContext.request.contextPath}/js/userentry.js"></script>
+		<script src="https://yubinbango.github.io/yubinbango/yubinbango.js" charset="UTF-8"></script>
 	</head>
 	
 	<body id="top" class="c1">
 		<div id="container">
 			<header>
 				<h1 id="logo">
-					<a href="${pageContext.request.contextPath}/front/top"><img src="${pageContext.request.contextPath}/images/logo.png" width="370" height="60" alt="Sample Online Shop"></a>
+					<img src="${pageContext.request.contextPath}/images/logo.png" width="275" alt="Sample Online Shop" onclick="showTop()">
 				</h1>
 				<div class="headermenu">
 					<ul>
@@ -66,7 +68,7 @@
 					</li>
 				</ul>
 			</nav>
-			<form id="registform" class="h-adr" action="" method="post"><br><br><br>
+			<form id="registform" class="h-adr" action="userconfigcomp" method="post"><br><br><br>
 				<h3>アカウント設定編集</h3>
 				性<input type="text" name="firstname" value="${data.fName}" required>   
 				名<input type="text" name="lastname" value="${data.lName}" required> 例：山田 太郎<br><br>
@@ -77,35 +79,34 @@
 				生年月日<input type="date" name="birthday" value="${data.birth}" required>&nbsp;&nbsp;例:2000/01/01<br><br>
 				
 				<span class="p-country-name" style="display:none;">Japan</span>
-				〒郵便番号<input type="text" class="p-postal-code" size="7" maxlength="7" 
+				〒郵便番号<input type="text" class="p-postal-code" size="7" maxlength="7" name="code"
 					autocomplete="postal-code" value="${data.post}" required> 例:1648787<br><br>
-				都道府県<input type="text" class="p-region" autocomplete="address-level1"
+				都道府県<input type="text" class="p-region" autocomplete="address-level1"  name="region"
 					value="${data.add1}" readonly required /> 例：東京都<br>
-				市区町村<input type="text" class="p-locality" autocomplete="address-level2"
+				市区町村<input type="text" class="p-locality" autocomplete="address-level2"  name="locality"
 					value="${data.add2}" required /> 例：中野区<br>
-				番地<input type="text" class="p-street-address" autocomplete="address-line1"
+				番地<input type="text" class="p-street-address" autocomplete="address-line1" name="street"
 					value="${data.add3}" required /> 例：東中野4-2-3<br>
-				建物名<input type="text" class="p-extended-address" autocomplete="address-line2"
-					value="${data.add4}" required /> 例：専門学校東京テクニカルカレッジ<br><br>
+				建物名<input type="text" class="p-extended-address" autocomplete="address-line2" name="extended"
+					value="${data.add4}" /> 例：専門学校東京テクニカルカレッジ<br><br>
 				
 				電話番号<input type="text" name="phone_number" value="${data.phone}" required> 例：0120444906<br><br>
 				
 				<div><label for="emailInput">メールアドレス</label> 例：example@example.com</div>
-				<div><input type="email" id="emailInput" autocomplete="email" maxlength="256" value="${data.email}" required /></div>
+				<div><input type="email" id="emailInput" name="email" autocomplete="email" maxlength="256" value="${data.email}" required /></div>
 				
 				<div><label for="emailConfirm">メールアドレス確認</label></div>
 				<div><input type="email" id="emailConfirm" autocomplete="email" maxlength="256" value="${data.email}" required onblur="CheckEmail(this)" /></div>
 				
 				<div><label for="passInput">パスワード</label> 例：password</div>
-				<div><input type="password" id="passInput" pattern="^[0-9A-Za-z]+$" required />
+				<div><input type="password" id="passInput" name="password" pattern="^[0-9A-Za-z]+$" required />
 					<input id="passCheckBox" type="checkbox" onclick="CheckPass();" required>パスワードのチェックをする
 				</div>
 				
 				<div><label for="passConfirm">パスワード確認</label></div>
 				<div><input type="password" id="passConfirm" required pattern="^[0-9A-Za-z]+$" /><p id="passMessage"></p></div>
 				
-				利用規約・個人情報保護方針に同意する<input type="checkbox" id="agreeButton" name="consent" required onclick="arrivalButton()" /><br>
-				<input id="submitButton" type="submit" value="内容確認">
+				<input id="submitButton" type="submit" value="設定変更">
 			</form>
 		</div>
 		
