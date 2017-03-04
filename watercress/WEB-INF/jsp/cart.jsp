@@ -17,7 +17,7 @@
 		<style>.ddmenu {display: none;}</style>
 	<![endif]-->
 		<script type="text/javascript" src="${pageContext.request.contextPath}/js/openclose.js"></script>
-		<script type="text/javascript" src="${pageContext.request.contextPath}/ddmenu_min.js"></script>
+		<script type="text/javascript" src="${pageContext.request.contextPath}/js/ddmenu_min.js"></script>
 		<style>
 			#deleteButton{
 				align:right;
@@ -41,9 +41,7 @@
 
 		<header>
 			<h1 id="logo">
-				<a href="${pageContext.request.contextPath}/front/top">
-					<img src="${pageContext.request.contextPath}/images/logo.png" width="370" height="60" alt="Sample Online Shop">
-				</a>
+				<img src="${pageContext.request.contextPath}/images/logo.png" width="275" alt="Sample Online Shop" onclick="showTop()">
 			</h1>
 			<div class="headermenu">
 				<ul>
@@ -57,25 +55,35 @@
 
 		<nav id="menubar">
 			<ul>
+				
 				<li class="arrow">
 					<a>CATEGORY</a>
-						<ul class="ddmenu">
-							<li><a href="${pageContext.request.contextPath}/front/productlist">TOPS</a></li>
-							<li><a href="${pageContext.request.contextPath}/front/productlist">BOTTOMS</a></li>
-							<li><a href="${pageContext.request.contextPath}/front/productlist">UNDER</a></li>
-							<li><a href="${pageContext.request.contextPath}/front/productlist">SHOES</a></li>
-							<li><a href="${pageContext.request.contextPath}/front/productlist">ACCESSORIES</a></li>
-						</ul>
+					<ul class="ddmenu">
+						<li><a href="${pageContext.request.contextPath}/front/productlist?category=tops">TOPS</a></li>
+						<li><a href="${pageContext.request.contextPath}/front/productlist?category=bottoms">BOTTOMS</a></li>
+						<li><a href="${pageContext.request.contextPath}/front/productlist?category=under">UNDER</a></li>
+						<li><a href="${pageContext.request.contextPath}/front/productlist?category=shoes">SHOES</a></li>
+						<li><a href="${pageContext.request.contextPath}/front/productlist?category=accessories">ACCESSORIES</a></li>
+					</ul>
 				</li>
-				<li class="arrow"><a href="${pageContext.request.contextPath}/front/productlist">SALE</a></li>
-				<li class="arrow"><a href="${pageContext.request.contextPath}/front/productlist">RANKING</a></li>
-				<li class="arrow"><a href="${pageContext.request.contextPath}/front/productlist">ALLITEM</a></li>
+                
+				<li class="arrow">
+					<a href="${pageContext.request.contextPath}/front/productlist?searchTag=セール">SALE</a>
+				</li>
+
+				<li class="arrow">
+					<a href="${pageContext.request.contextPath}/front/productlist?sort=purchaseDesc">RANKING</a>
+				</li>
+                
+				<li class="arrow">
+					<a href="${pageContext.request.contextPath}/front/productlist">ALLITEM</a>
+				</li>
+                
 				<li class="arrow">
 					<a>HELP</a>
-					<ul class="ddmenu">
+					<ul class="ddmenu">//koko
 						<li><a href="${pageContext.request.contextPath}/front/contact">お問い合わせ</a></li>
 						<li><a href="${pageContext.request.contextPath}/front/question">Q&A</a></li>
-					</ul>
 				</li>
 			</ul>
 		</nav>
@@ -120,14 +128,14 @@
 		<h1>ログインして購入</h1>
 			<form action="${pageContext.request.contextPath}/front/cartlogin" method="post">
 				<th>Email</th>
-					<td><input type="email" name="user_id" value="" size="24"></td>
+					<td><input type="email" name="email" value="" size="24"></td>
 				<th>Password</th>
-					<td><input type="password" name="password" minlength="8" value="" size="24"><br></td>
+					<td><input type="password" name="pass" minlength="8" value="" size="24"><br></td>
 
 				<p><input type="submit" value="ログイン"></p><br>
 				
 		<h1>会員登録せず購入</h1>
-			<a href="${pageContext.request.contextPath}/front/nomemberorder">
+			<a href="${pageContext.request.contextPath}/front/nonmemberorder">
 				<img src="${pageContext.request.contextPath}/images/no_member.png" width="240" height="80" alt="New Menber Resist">
 			</a>
 	</section>
@@ -155,15 +163,20 @@
 		</div>
 	</footer>
 
-<!--スライドショースクリプト-->
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/slide_simple_pack.js"></script>
+		<!--スライドショースクリプト-->
+		<script type="text/javascript" src="${pageContext.request.contextPath}/js/slide_simple_pack.js"></script>
 
-<!--スマホ用更新情報-->
-<script type="text/javascript">
-	if (OCwindowWidth() < 480) {
-		open_close("newinfo_hdr", "newinfo");
-	}
-</script>
-
-</body>
+		<!--スマホ用更新情報-->
+		<script type="text/javascript">
+			if (OCwindowWidth() < 480) {
+				open_close("newinfo_hdr", "newinfo");
+			}
+		</script>
+		<!--トップ表示-->
+		<script>
+			function showTop(){
+				location.href = "${pageContext.request.contextPath}/front/top";
+			}
+		</script>
+	</body>
 </html>

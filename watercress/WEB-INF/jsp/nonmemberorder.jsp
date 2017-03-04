@@ -88,7 +88,7 @@
 			メイ<input class="name" type="text" name="kananame" required pattern="^[ァ-ンヴー]+$"><p class="req">※必須</p>&nbsp;&nbsp;例：ヤマダ&nbsp;タロウ<br><br>
 			
 			<span class="p-country-name" style="display:none;">Japan</span>
-			〒郵便番号<input type="text" id="address_0" class="p-postal-code" size="7" maxlength="7" name="zipcode" autocomplete="postal-code"  value="${data.addr0}">&nbsp;&nbsp;例：1648787<br><br>
+			〒郵便番号<input type="text" id="address_0" class="p-postal-code" size="7" maxlength="7" name="zipcode" autocomplete="postal-code"  value="${data.addr0}">&nbsp;&nbsp;例：1640003<br><br>
 			
 			都道府県　<input name="prefectures" type="text" id="address_1" class="p-region" autocomplete="address-level1" />&nbsp;&nbsp;例：東京都<br>
 			市区町村　<input name="city" type="text" id="address_2" class="p-locality" autocomplete="address-level2" />&nbsp;&nbsp;中野区<br>
@@ -100,14 +100,14 @@
 			
 			<h3>配達時間指定</h3>
 			配達希望日&nbsp;<p class="req">※必須</p>
-				3営業日後<input type="radio" name="delivery_request_day" value="3" required>
-				4営業日後<input type="radio" name="delivery_request_day" value="4">
-				5営業日後<input type="radio" name="delivery_request_day" value="5">
-				6営業日後<input type="radio" name="delivery_request_day" value="6">
-				7営業日後<input type="radio" name="delivery_request_day" value="7"><br>
+				<input type="radio" name="delivery_request_day" value="3" required>3営業日後
+				<input type="radio" name="delivery_request_day" value="4">4営業日後
+				<input type="radio" name="delivery_request_day" value="5">5営業日後
+				<input type="radio" name="delivery_request_day" value="6">6営業日後
+				<input type="radio" name="delivery_request_day" value="7">7営業日後<br>
 			配達希望時間&nbsp;<p class="req">※必須</p>
-				指定なし<input type="radio" name="delivery_request_time" value="指定なし" required>
-				午前<input type="radio" name="delivery_request_time" value="午前">
+				<input type="radio" name="delivery_request_time" value="指定なし" required>指定なし
+				<input type="radio" name="delivery_request_time" value="午前">午前
 				<input type="radio" name="delivery_request_time" value="12時～14時">12時～14時<br>
 				<input type="radio" name="delivery_request_time" value="14時～16時">14時～16時
 				<input type="radio" name="delivery_request_time" value="16時～18時">16時～18時

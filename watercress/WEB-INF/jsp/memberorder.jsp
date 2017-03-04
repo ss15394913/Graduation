@@ -16,37 +16,51 @@
 		<style>.ddmenu {display: none;}</style>
 		<![endif]-->
 		<style>
-			#card_0 {width: 120px;}
-			#card_1 {width: 35px;}
-			#card_2 {width: 60px;}
-			#card_3 {width: 40px;}
-			.name {width: 120px;}
-			.req {color: red;}
+			#card_0 {
+				width: 120px;
+			}
+
+			#card_1 {
+				width: 35px;
+			}
+
+			#card_2 {
+				width: 60px;
+			}
+
+			#card_3 {
+				width: 40px;
+			}
+
+			.name {
+				width: 120px;
+			}
+
+			.req {
+				color: red;
+			}
 		</style>
-		<script src="https://yubinbango.github.io/yubinbango/yubinbango.js" charset="UTF-8"></script>
 		<script type="text/javascript" src="${pageContext.request.contextPath}/js/openclose.js"></script>
 		<script type="text/javascript" src="${pageContext.request.contextPath}/js/ddmenu_min.js"></script>
 		<script type="text/javascript" src="${pageContext.request.contextPath}/js/inputDestruction.js" charset="UTF-8"></script>
 		<script type="text/javascript" src="${pageContext.request.contextPath}/js/memberorder.js" charset="UTF-8"></script>
+		<script src="https://yubinbango.github.io/yubinbango/yubinbango.js" charset="UTF-8"></script>
 	</head>
-	<body id="top" class="c1">
 	
+	<body id="top" class="c1">
 		<div id="container">
-		
 			<header>
 				<h1 id="logo">
 					<img src="${pageContext.request.contextPath}/images/logo.png" width="275" alt="Sample Online Shop" onclick="showTop()">
 				</h1>
-				
 				<div class="headermenu">
 					<ul>
-						<a href="${pageContext.request.contextPath}/front/userentry">会員登録</a>
+						<a href="${pageContext.request.contextPath}/ front/userentry">会員登録</a>
 						<a href="${pageContext.request.contextPath}/front/login">ログイン</a>
 					</ul>
 					<div id="cart">
 						<a href="${pageContext.request.contextPath}/front/cart">CART</a>
 					</div>
-				</div>
 			</header>
 			
 			<nav id="menubar">
@@ -61,15 +75,19 @@
 							<li><a href="${pageContext.request.contextPath}/front/productlist?category=accessories">ACCESSORIES</a></li>
 						</ul>
 					</li>
+					
 					<li class="arrow">
 						<a href="${pageContext.request.contextPath}/front/productlist?searchTag=セール">SALE</a>
 					</li>
+					
 					<li class="arrow">
 						<a href="${pageContext.request.contextPath}/front/productlist?sort=purchaseDesc">RANKING</a>
 					</li>
+					
 					<li class="arrow">
 						<a href="${pageContext.request.contextPath}/front/productlist">ALLITEM</a>
 					</li>
+					
 					<li class="arrow">
 						<a>HELP</a>
 						<ul class="ddmenu">
@@ -78,43 +96,38 @@
 						</ul>
 					</li>
 				</ul>
-			</nav><br><br><br><br>
+			</nav><br><br><br>
 			
 			<form class="h-adr" action="ordercheck" method="post">
 				<h3>お届け先住所</h3>
-				
 				性<input class="name" type="text" name="firstname" value="${memberInformation.firstname}" required><p class="req">※必須</p><nobr>
-				名<input class="name" type="text" name="name" value="${memberInformation.name}" required><p class="req">※必須</p><nobr>&nbsp;例：山田&nbsp;太郎<br><br>
+				名<input class="name" type="text" name="name" value="${memberInformation.name}" required><p class="req">※必須</p><nobr>&nbsp;&nbsp;例：山田&nbsp;太郎<br><br>
 				
 				セイ<input class="name" type="text" name="kanafirstname" value="${memberInformation.kanafirstname}" required pattern="^[ァ-ンヴー]+$*"><p class="req">※必須</p><nobr>
-				メイ<input class="name" type="text" name="kananame" value="${memberInformation.kananame}" required pattern="^[ァ-ンヴー]+$"><p class="req">※必須</p><nobr>&nbsp;例：ヤマダ&nbsp;タロウ<br><br>
+				メイ<input class="name" type="text" name="kananame" value="${memberInformation.kananame}" required pattern="^[ァ-ンヴー]+$"><p class="req">※必須</p><nobr>&nbsp;&nbsp;例：ヤマダ&nbsp;タロウ<br><br>
 				
 				<span class="p-country-name" style="display:none;">Japan</span>
 				<!--チェックボックスで住所を変更あるかないか-->
-				<input type="checkbox" id="change" name="del_add_change" value="notchange" 
-					onclick="changeRequiredAddressInfo();">届け先住所を変更する<br>
+				<input type="checkbox" id="change" name="del_add_change" value="notchange" onclick="changeRequiredAddressInfo();">届け先住所を変更する<br>
+				〒郵便番号<input type="text" id="address_0" class="p-postal-code" size="7" maxlength="7" minlength="7" name="zipcode" autocomplete="postal-code"  value="${memberInformation.addr0}">&nbsp;&nbsp;例：1640003<br><br>
 				
-				〒郵便番号<input type="text" id="address_0" class="p-postal-code" size="7" maxlength="7" name="zipcode"
-					 autocomplete="postal-code" value="${memberInformation.addr0}" disabled>&nbsp;例：1648787<br><br>
+				都道府県　<input name="prefectures" value="${memberInformation.addr1}" type="text" maxlength="8" id="address_1" class="p-region" autocomplete="address-level1" readonly />&nbsp;&nbsp;例：東京都<br>
+				市区町村　<input name="city" value="${memberInformation.addr2}" type="text" maxlength="30" id="address_2" class="p-locality" autocomplete="address-level2" />&nbsp;&nbsp;中野区<br>
+				番地　　　　<input name="blocknumber" value="${memberInformation.addr3}" maxlength="30" type="text" id="address_3" class="p-street-address" autocomplete="address-line1" />&nbsp;&nbsp;東中野4-2-3<br>
+				建物名　　 <input name="bildingname" value="${memberInformation.addr4}" maxlength="30" type="text" id="address_4" class="p-extended-address" autocomplete="address-line2" />&nbsp;&nbsp;専門学校 東京テクニカルカレッジ<br><br>
 				
-				都道府県　<input name="prefectures" value="${memberInformation.addr1}" type="text" id="address_1" class="p-region" autocomplete="address-level1" readonly  disabled/>&nbsp;例：東京都<br>
-				市区町村　<input name="city" value="${memberInformation.addr2}" type="text" id="address_2" class="p-locality" autocomplete="address-level2"  disabled/>&nbsp;中野区<br>
-				番地　　　　<input name="blocknumber" value="${memberInformation.addr3}" type="text" id="address_3" class="p-street-address" autocomplete="address-line1"  disabled/>&nbsp;東中野4-2-3<br>
-				建物名　　 <input name="bildingname" value="${memberInformation.addr4}" type="text" id="address_4" class="p-extended-address" autocomplete="address-line2"  disabled/>&nbsp;専門学校 東京テクニカルカレッジ<br><br>
-				
-				電話番号<input type="text" name="phonenumber" value="${memberInformation.phonenumber}" minlength="10" maxlength="11" required><p class="req" pattern="^[0-9]">※必須</p>
-					半角数字のみ。ハイフン(-)は入れない。&nbsp;例：09012345678<br><br><br>
+				電話番号<input type="text" name="phonenumber" value="${memberInformation.phonenumber}" maxlength="11" minlength="10" required><p class="req" pattern="^[0-9]">※必須</p><nobr>半角数字のみ。ハイフン(-)は入れない。<nobr>例：09012345678<br><br><br>
 				
 				<h3>配達時間指定</h3>
-				配達希望日　<p class="req">※必須</p>
-					3営業日後<input type="radio" name="delivery_request_day" value="3" required>
-					4営業日後<input type="radio" name="delivery_request_day" value="4">
-					5営業日後<input type="radio" name="delivery_request_day" value="5">
-					6営業日後<input type="radio" name="delivery_request_day" value="6">
-					7営業日後<input type="radio" name="delivery_request_day" value="7"><br>
-				配達希望時間　<p class="req">※必須</p>
-					指定なし<input type="radio" name="delivery_request_time" value="指定なし" required>
-					午前<input type="radio" name="delivery_request_time" value="午前">
+				配達希望日&nbsp;<p class="req">※必須</p><nobr>
+					<input type="radio" name="delivery_request_day" value="3" required>3営業日後
+					<input type="radio" name="delivery_request_day" value="4">4営業日後
+					<input type="radio" name="delivery_request_day" value="5">5営業日後
+					<input type="radio" name="delivery_request_day" value="6">6営業日後
+					<input type="radio" name="delivery_request_day" value="7">7営業日後<br>
+				配達希望時間&nbsp;<p class="req">※必須</p><nobr>
+					<input type="radio" name="delivery_request_time" value="指定なし" required>指定なし
+					<input type="radio" name="delivery_request_time" value="午前">午前
 					<input type="radio" name="delivery_request_time" value="12時～14時">12時～14時<br>
 					<input type="radio" name="delivery_request_time" value="14時～16時">14時～16時
 					<input type="radio" name="delivery_request_time" value="16時～18時">16時～18時
@@ -126,7 +139,7 @@
 				<input id="pay_card" type="radio" name="payment_method" value="creditCard" onclick="changeRequiredCardInfo();">クレジットカード<br>
 				カード番号<input class="card" id="card_0" type="text" name="creditcardnumber" minlength="16" maxlength="16">
 				セキュリティコード<input class="card" id="card_1" type="text" name="securitycode" minlength="3" maxlength="4">
-				<SELECT class="card" id="card_2" type="text" name="expirationdate_year">
+				<select class="card" id="card_2" type="text" name="expirationdate_year">
 					<option value="2017">2017</option>
 					<option value="2018">2018</option>
 					<option value="2019">2019</option>
@@ -135,7 +148,7 @@
 					<option value="2020">2023</option>
 					<option value="2020">2024</option>
 				</select>年
-				<SELECT class="card" id="card_3" type="text" name="expirationdate_month">
+				<select class="card" id="card_3" type="text" name="expirationdate_month">
 					<option value="">--</option>
 					<option value="1">1</option>
 					<option value="2">2</option>
@@ -149,15 +162,13 @@
 					<option value="10">10</option>
 					<option value="11">11</option>
 					<option value="12">12</option>
-				</SELECT>月
+				</select>月
 				<br>半角数字のみ&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;例：1234123412341234
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				年/月 例：20/10<br><br>
 				
-				<input type="radio" name="payment_method" value="cashOnDelivery" onclick="changeRequiredCardInfo();" required>
-					商品代引き<br>手数料324円<br><br>
-				
+				<input type="radio" name="payment_method" value="cashOnDelivery" onclick="changeRequiredCardInfo();" required>商品代引き<br>手数料324円<br><br>
 				<table class="ta1">
 					<tr>
 						<th>注文合計</th>
@@ -172,7 +183,6 @@
 						<td id="payment_total" name="total_price">${memberInformation.totalprice}円</td>
 					</tr>
 				</table><br>
-				
 				<input type="hidden" value="${memberInformation.orderprice}" name="orderprice">
 				<input id="hiddentotalprice" type="hidden" value="${memberInformation.orderprice}" name="totalprice">
 				<p><input type="submit" value="注文する"></p>
@@ -200,13 +210,6 @@
 		<script type="text/javascript">
 			if (OCwindowWidth() < 480) {
 				open_close("newinfo_hdr", "newinfo");
-			}
-		</script>
-		
-		<!--トップ表示-->
-		<script>
-			function showTop(){
-				location.href = "${pageContext.request.contextPath}/front/top";
 			}
 		</script>
 	</body>
