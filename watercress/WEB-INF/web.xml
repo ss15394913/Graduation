@@ -1,0 +1,75 @@
+<web-app>
+	<welcome-file-list>
+		<welcome-file>front/top</welcome-file>
+	</welcome-file-list>
+	
+	<servlet>
+		<servlet-name>frontservlet</servlet-name>
+		<servlet-class>logic.FrontServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>frontservlet</servlet-name>
+		<url-pattern>/front/*</url-pattern>
+	</servlet-mapping>
+
+	
+	<filter>
+		<filter-name>logincheckfilter</filter-name>
+		<filter-class>filter.LogInCheckFilter</filter-class>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>logincheckfilter</filter-name>
+		<url-pattern>/front/leave</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>logincheckfilter</filter-name>
+		<url-pattern>/WEB-INF/jsp/leave.jsp</url-pattern>
+		<dispatcher>FORWARD</dispatcher>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>logincheckfilter</filter-name>
+		<url-pattern>/front/mypage</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>logincheckfilter</filter-name>
+		<url-pattern>/WEB-INF/jsp/mypage.jsp</url-pattern>
+		<dispatcher>FORWARD</dispatcher>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>logincheckfilter</filter-name>
+		<url-pattern>/front/userconfig</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>logincheckfilter</filter-name>
+		<url-pattern>/WEB-INF/jsp/userconfig.jsp</url-pattern>
+		<dispatcher>FORWARD</dispatcher>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>logincheckfilter</filter-name>
+		<url-pattern>/front/orderhistory</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>logincheckfilter</filter-name>
+		<url-pattern>/WEB-INF/jsp/orderhistory.jsp</url-pattern>
+		<dispatcher>FORWARD</dispatcher>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>logincheckfilter</filter-name>
+		<url-pattern>/front/payinput</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>logincheckfilter</filter-name>
+		<url-pattern>/WEB-INF/jsp/payinput.jsp</url-pattern>
+		<dispatcher>FORWARD</dispatcher>
+	</filter-mapping>
+</web-app>
