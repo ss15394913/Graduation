@@ -30,7 +30,7 @@
 		<script type="text/javascript" src="${pageContext.request.contextPath}/js/memberorder.js" charset="UTF-8"></script>
 	</head>
 	<body id="top" class="c1">
-		<input type="hidden" value="${sessionScope.login}">
+		<input type="hidden" value="${sessionScope.login}" id="memberid">
 		<div id="container">
 		
 			<header>

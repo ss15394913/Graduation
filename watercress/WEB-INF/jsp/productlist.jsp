@@ -51,7 +51,7 @@
 	</head>
 	
 	<body id="top" class="c1">
-		<input type="hidden" value="${sessionScope.login}">
+		<input type="hidden" value="${sessionScope.login}" id="memberid">
 		<div id="container">
 			
 			<header>
@@ -249,6 +249,13 @@
 			</div>
 		</footer>
 		
+		<!--トップ表示-->
+		<script>
+			function showTop(){
+				location.href = "${pageContext.request.contextPath}/front/top";
+			}
+		</script>
+	
 		<script>
 			var arr = document.getElementById("memberid").value;
 			parseInt(arr);

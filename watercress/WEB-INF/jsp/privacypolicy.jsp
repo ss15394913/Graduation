@@ -19,7 +19,7 @@
 		<script type="text/javascript" src="${pageContext.request.contextPath}/js/ddmenu_min.js"></script>
 	</head>
 	<body>
-		<input type="hidden" value="${sessionScope.login}">
+		<input type="hidden" value="${sessionScope.login}" id="memberid">
 		<div id="container">
 			<header>
 				<h1 id="logo">

@@ -29,7 +29,7 @@
 </head>
 
 <body id="top" class="c1">
-	<input type="hidden" value="${sessionScope.login}">
+	<input type="hidden" value="${sessionScope.login}" id="memberid">
 	<div id="container">
 		<header>
 			<h1 id="logo">

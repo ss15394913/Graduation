@@ -21,7 +21,7 @@
 	</head>
 	
 	<body>
-		<input type="hidden" value="${sessionScope.login}">
+		<input type="hidden" value="${sessionScope.login}" id="memberid">
 		<div id="container">
 			<header>
 				<h1 id="logo">

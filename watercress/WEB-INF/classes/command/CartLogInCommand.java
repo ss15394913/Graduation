@@ -44,7 +44,7 @@ public class CartLogInCommand extends AbstractCommand {
 				データベース内に存在しなかった場合 */
 			if(flag){
 				System.out.println("メールアドレスが違います");		//ここを書き換えてjspに表示したい(余裕があれば)
-				reqc.setSessionAttribute("login", "NG");
+				reqc.setSessionAttribute("login", "");
 
 				/*ログイン失敗時に表示するメッセージ*/
 				reqc.setSessionAttribute("message1", new String("ログインに失敗しました。以下の内容が原因の可能性があります。"));
@@ -59,7 +59,7 @@ public class CartLogInCommand extends AbstractCommand {
 
 			/* 未ログイン・ログインに失敗した場合、
 				専用のログイン画面へ飛ばす */
-			if(login == null || "".equals(login) || "NG".equals(login)) {
+			if(login == null || "".equals(login)) {
 				responseContext.setTarget("cartlogin");
 
 				/*ログイン失敗時に表示するメッセージ*/
@@ -96,7 +96,7 @@ public class CartLogInCommand extends AbstractCommand {
 			セッションにログインが失敗したことを登録*/
 		}else{
 			System.out.println("パスワードが違います");				//ここを書き換えてjspに表示したい(余裕があれば)
-			reqc.setSessionAttribute("login", "NG");
+			reqc.setSessionAttribute("login", "");
 
 			/*ログイン失敗時に表示するメッセージ*/
 			reqc.setSessionAttribute("message1", new String("ログインに失敗しました。以下の内容が原因の可能性があります。"));

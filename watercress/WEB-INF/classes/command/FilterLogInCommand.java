@@ -47,7 +47,7 @@ public class FilterLogInCommand extends AbstractCommand {
 				データベース内に存在しなかった場合 */
 			if(flag){
 				System.out.println("メールアドレスが違います");		//ここを書き換えてjspに表示したい(余裕があれば)
-				reqc.setSessionAttribute("login", "NG");
+				reqc.setSessionAttribute("login", "");
 
 				/*ログイン失敗時に表示するメッセージ*/
 				reqc.setSessionAttribute("message1", new String("ログインに失敗しました。以下の内容が原因の可能性があります。"));
@@ -76,7 +76,7 @@ public class FilterLogInCommand extends AbstractCommand {
 			/* 未入会・退会済の場合 */
 			}else {
 				System.out.println("退会済、または未入会のユーザです");	//ここを書き換えてjspに表示したい(余裕があれば)
-				reqc.setSessionAttribute("login", "NG");
+				reqc.setSessionAttribute("login", "");
 				/*ログイン失敗時に表示するメッセージ*/
 				reqc.setSessionAttribute("message1", new String("ログインに失敗しました。以下の内容が原因の可能性があります。"));
 				reqc.setSessionAttribute("message2", new String("・入力メールアドレスに間違いがある。パスワードが違う。"));
@@ -87,7 +87,7 @@ public class FilterLogInCommand extends AbstractCommand {
 			セッションにログインが失敗したことを登録*/
 		}else{
 			System.out.println("パスワードが違います");				//ここを書き換えてjspに表示したい(余裕があれば)
-			reqc.setSessionAttribute("login", "NG");
+			reqc.setSessionAttribute("login", "");
 
 			/*ログイン失敗時に表示するメッセージ*/
 			reqc.setSessionAttribute("message1", new String("ログインに失敗しました。以下の内容が原因の可能性があります。"));
