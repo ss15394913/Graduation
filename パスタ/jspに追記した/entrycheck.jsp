@@ -18,7 +18,7 @@
 		<script type="text/javascript" src="${pageContext.request.contextPath}/js/openclose.js"></script>
 		<script type="text/javascript" src="${pageContext.request.contextPath}/js/ddmenu_min.js"></script>
 	</head>
-	
+	<input type=”hidden” value="${sessionScope.login}">
 	<body id="top" class="c1">
 		<div id="container">
 		
@@ -28,8 +28,8 @@
 				</h1>
 				
 				<div class="headermenu">
-					<ul>
-						<a href="${pageContext.request.contextPath}/front/userentry">会員登録</a>
+				<ul id="usermenu">
+										<a href="${pageContext.request.contextPath}/front/userentry">会員登録</a>
 						<a href="${pageContext.request.contextPath}/front/login">ログイン</a>
 					</ul>
 					<div id="cart"><a href="#">CART</a></div>

@@ -6,6 +6,7 @@
 		<meta http-equiv="content-type" content="text/html; charset=utf-8">
 		<title>ログイン</title>
 	</head>
+	<input type=”hidden” value="${sessionScope.login}">
 	<body>
 		<div align="center">
 			<img src="${pageContext.request.contextPath}/images/login.png" alt="Login">

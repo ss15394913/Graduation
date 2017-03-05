@@ -26,7 +26,7 @@
 				</h1>
 				
 				<div class="headermenu">
-					<ul>
+				<ul id="usermenu">
 						<a href="${pageContext.request.contextPath}/front/userentry">会員登録</a>
 						<a href="${pageContext.request.contextPath}/front/login">ログイン</a>
 					</ul>

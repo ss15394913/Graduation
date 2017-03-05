@@ -19,6 +19,7 @@
 		<script type="text/javascript" src="${pageContext.request.contextPath}/js/openclose.js"></script>
 		<script type="text/javascript" src="${pageContext.request.contextPath}/js/ddmenu_min.js"></script>
 	</head>
+	<input type=”hidden” value="${sessionScope.login}">
 
 	<body id="top" class="c1">
 

@@ -49,7 +49,7 @@ out.print("<script>$(\".favoButton\").click(function() {var num = $(this).data(\
       ${productId}
       <%out.print("type: 'POST',dataType: 'json',data: {favonum: num},}).done(function(data, textStatus, jqXHR) {if(data.result == true){$(button).css('backgroundColor', '');$(button).data('condition',false);}}).fail(function(data) {console.log(\"error\");});}});</script>");%>
 </head>
-
+<input type=”hidden” value="${sessionScope.login}">
 <body id="top" class="c1">
 
 <div id="container">
@@ -61,7 +61,7 @@ out.print("<script>$(\".favoButton\").click(function() {var num = $(this).data(\
 		</a>
 	</h1>
 	<div class="headermenu">
-	<ul>
+				<ul id="usermenu">
 		<a href="${pageContext.request.contextPath}/front/userentry">会員登録</a>
 		<a href="${pageContext.request.contextPath}/front/login">ログイン</a>
 	</ul>
