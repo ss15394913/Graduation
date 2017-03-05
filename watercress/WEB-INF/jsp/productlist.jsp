@@ -38,16 +38,7 @@
 <![endif]-->
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/openclose.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/ddmenu_min.js"></script>
-<%
-out.print("<script>$(\".favoButton\").click(function() {var num = $(this).data(\"favonum\");var button = this;if($(this).data('condition') == false){ $.ajax({url: '");%>
-      ${pageContext.request.contextPath}
-      <%out.print("/front/addfavorite?productId=");%>
-      ${productId}
-      <%out.print("',type: 'POST', dataType: 'json',data: {favonum: num},}).done(function(data, textStatus, jqXHR) {if(data.result == true){$(button).css('backgroundColor', '#FF0');$(button).data('condition',true);}}).fail(function(data) {console.log(\"error\");});}else if($(this).data('condition') == true){$.ajax({url: '");%>
-      ${pageContext.request.contextPath}
-      <%out.print("/front/removefavorite?productId=',");%>
-      ${productId}
-      <%out.print("type: 'POST',dataType: 'json',data: {favonum: num},}).done(function(data, textStatus, jqXHR) {if(data.result == true){$(button).css('backgroundColor', '');$(button).data('condition',false);}}).fail(function(data) {console.log(\"error\");});}});</script>");%>
+<%out.print("<script>$(\".favoButton\").click(function() {var num = $(this).data(\"favonum\");var button = this;if($(this).data('condition') == false){ $.ajax({url: '");%>${pageContext.request.contextPath}<%out.print("/front/addfavorite?productId=");%>${productId}<%out.print("',type: 'POST', dataType: 'json',data: {favonum: num},}).done(function(data, textStatus, jqXHR) {if(data.result == true){$(button).css('backgroundColor', '#FF0');$(button).data('condition',true);}}).fail(function(data) {console.log(\"error\");});}else if($(this).data('condition') == true){$.ajax({url: '");%>${pageContext.request.contextPath}<%out.print("/front/removefavorite?productId=',");%>${productId}<%out.print("type: 'POST',dataType: 'json',data: {favonum: num},}).done(function(data, textStatus, jqXHR) {if(data.result == true){$(button).css('backgroundColor', '');$(button).data('condition',false);}}).fail(function(data) {console.log(\"error\");});}});</script>");%>
 </head>
 
 <body id="top" class="c1">
@@ -185,7 +176,9 @@ out.print("<script>$(\".favoButton\").click(function() {var num = $(this).data(\
 					</c:if>
 					<!-- 売り切れの表示 -->
 					
-					<span class="favo">☆</span>
+					<form action="productlist" method="get" onsubmit="return false;">
+						<input type="image" src="" name="productId" value="${product.catalog,productId}">
+					</form>
 					
 					</figure>
 					<h4 style="position: absolute">${product.catalog.productName}
