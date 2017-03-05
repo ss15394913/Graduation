@@ -19,6 +19,7 @@
 		<script type="text/javascript" src="${pageContext.request.contextPath}/js/ddmenu_min.js"></script>
 	</head>
 	<body>
+		<input type="hidden" value="${sessionScope.login}">
 		<div id="container">
 			<header>
 				<h1 id="logo">
@@ -26,7 +27,7 @@
 				</h1>
 				
 				<div class="headermenu">
-					<ul>
+					<ul id="usermenu">
 						<a href="${pageContext.request.contextPath}/front/userentry">会員登録</a>
 						<a href="${pageContext.request.contextPath}/front/login">ログイン</a>
 					</ul>
@@ -109,31 +110,18 @@
 				<div id="sub">
 					<nav class="box1">
 						<h2>MENU</h2>
-							<ul class="submenu mb10">
-								<li><a href="${pageContext.request.contextPath}/front/companyinfo">会社概要</a></li>
-								<li><a href="${pageContext.request.contextPath}/front/tos">利用規約</a></li>
-								<li><a href="${pageContext.request.contextPath}/front/sitemap">サイトマップ</a></li>
-								<li><a href="${pageContext.request.contextPath}/front/privacypolicy">個人情報保護方針</a></li>
-								<li><a href="${pageContext.request.contextPath}/front/deal">特定商取引法</a></li>
-							</ul>
-				</nav>
+						<ul class="submenu mb10">
+							<li><a href="${pageContext.request.contextPath}/front/companyinfo">会社概要</a></li>
+							<li><a href="${pageContext.request.contextPath}/front/tos">利用規約</a></li>
+							<li><a href="${pageContext.request.contextPath}/front/sitemap">サイトマップ</a></li>
+							<li><a href="${pageContext.request.contextPath}/front/privacypolicy">個人情報保護方針</a></li>
+							<li><a href="${pageContext.request.contextPath}/front/deal">特定商取引法</a></li>
+						</ul>
+					</nav>
+				</div>
+				<!--sub-->
 			</div>
 			<!--/contents-->
-			
-			<div id="sub">
-			
-				<nav class="box1">
-					<h2>MENU</h2>
-					<ul class="submenu mb10">
-						<li><a href="${pageContext.request.contextPath}/front/companyinfo">会社概要</a></li>
-						<li><a href="${pageContext.request.contextPath}/front/tos">利用規約</a></li>
-						<li><a href="${pageContext.request.contextPath}/front/sitemap">サイトマップ</a></li>
-						<li><a href="${pageContext.request.contextPath}/front/privacypolicy">個人情報保護方針</a></li>
-						<li><a href="${pageContext.request.contextPath}/front/deal">特定商取引法</a></li>
-					</ul>
-				</nav>
-			</div>
-			
 		</div>
 		<!--/container-->
 		
@@ -165,6 +153,16 @@
 		<script>
 			function showTop(){
 				location.href = "${pageContext.request.contextPath}/front/top";
+			}
+		</script>
+		
+		<script>
+			var arr = document.getElementById("memberid").value;
+			parseInt(arr);
+			if(arr >0){
+				document.getElementById("usermenu").innerHTML = "<a href=\"${pageContext.request.contextPath}/front/mypage\">マイページ</a>&nbsp;<a href=\"${pageContext.request.contextPath}/front/logoutcomp\">ログアウト</a>";	
+			}else{
+				document.getElementById("usermenu").innerHTML = "<a href=\"${pageContext.request.contextPath}/front/userentry\">会員登録</a>&nbsp;<a href=\"${pageContext.request.contextPath}/front/login\">ログイン</a>";
 			}
 		</script>
 	</body>

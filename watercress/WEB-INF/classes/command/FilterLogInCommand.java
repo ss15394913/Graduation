@@ -48,6 +48,11 @@ public class FilterLogInCommand extends AbstractCommand {
 			if(flag){
 				System.out.println("メールアドレスが違います");		//ここを書き換えてjspに表示したい(余裕があれば)
 				reqc.setSessionAttribute("login", "NG");
+
+				/*ログイン失敗時に表示するメッセージ*/
+				reqc.setSessionAttribute("message1", new String("ログインに失敗しました。以下の内容が原因の可能性があります。"));
+				reqc.setSessionAttribute("message2", new String("・入力メールアドレスに間違いがある。パスワードが違う。"));
+				reqc.setSessionAttribute("message3", new String("・入力されたメールアドレスは登録がされていないか、本登録が済んでいません"));
 			}
 
 			responseContext.setTarget((String)reqc.getSessionAttribute("target"));
@@ -72,12 +77,23 @@ public class FilterLogInCommand extends AbstractCommand {
 			}else {
 				System.out.println("退会済、または未入会のユーザです");	//ここを書き換えてjspに表示したい(余裕があれば)
 				reqc.setSessionAttribute("login", "NG");
+				/*ログイン失敗時に表示するメッセージ*/
+				reqc.setSessionAttribute("message1", new String("ログインに失敗しました。以下の内容が原因の可能性があります。"));
+				reqc.setSessionAttribute("message2", new String("・入力メールアドレスに間違いがある。パスワードが違う。"));
+				reqc.setSessionAttribute("message3", new String("・入力されたメールアドレスは登録がされていないか、本登録が済んでいません"));
+
 			}
 		/* パスワードが違う場合(ログイン失敗)、
 			セッションにログインが失敗したことを登録*/
 		}else{
 			System.out.println("パスワードが違います");				//ここを書き換えてjspに表示したい(余裕があれば)
 			reqc.setSessionAttribute("login", "NG");
+
+			/*ログイン失敗時に表示するメッセージ*/
+			reqc.setSessionAttribute("message1", new String("ログインに失敗しました。以下の内容が原因の可能性があります。"));
+			reqc.setSessionAttribute("message2", new String("・入力メールアドレスに間違いがある。パスワードが違う。"));
+			reqc.setSessionAttribute("message3", new String("・入力されたメールアドレスは登録がされていないか、本登録が済んでいません"));
+
 		}
 	}
 }

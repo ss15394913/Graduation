@@ -45,5 +45,20 @@
 		<div align="center">
 			<img src="${pageContext.request.contextPath}/images/new_member.png" width="240" height="80"alt="New Menber Resist"></a>
 		</div>
+				
+		<br>
+		<center>
+			<table>
+				<tr>
+					<th><h2>${sessionScope.message1}</h2></th>
+				</tr>
+				<tr>
+					<td><h3>${sessionScope.message2}</h3></td>
+				</tr>
+				<tr>
+					<td><h3>${sessionScope.message3}</h3></td>
+				</tr>
+			</table>
+		</center>
 	</body>
 </html>

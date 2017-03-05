@@ -44,14 +44,14 @@
 	</head>
 	
 	<body id="top" class="c1">
-	
+		<input type="hidden" value="${sessionScope.login}">
 		<div id="container">
 			<header>
 				<h1 id="logo">
 					<img src="${pageContext.request.contextPath}/images/logo.png" width="275" alt="Sample Online Shop" onclick="showTop()">
 				</h1>
 				<div class="headermenu">
-					<ul>
+					<ul id="usermenu">
 						<a href="${pageContext.request.contextPath}/front/userentry">会員登録</a>
 						<a href="${pageContext.request.contextPath}/front/login">ログイン</a>
 					</ul>
@@ -102,9 +102,9 @@
 						<h2>${data.productInformation[0].productName}</h2>
 						<figure id="item-image">
 							<img src="${pageContext.request.contextPath}/images/${data.productImageData[0].imagePath}" 
-								alt="写真の説明を入れます" id="item_image1" align="left">
+								alt="写真の説明を入れます" id="item_image1" align="left" width="550">
 							<img src="${pageContext.request.contextPath}/images/${data.productImageData[0].imagePath}" 
-								alt="写真の説明を入れます" id="item_image2" align="left">
+								alt="写真の説明を入れます" id="item_image2" align="left" width="550">
 							<p><font size="5"><b id="imgcaption">${data.productInformation[0].productName}</b></font></p>
 							<p>
 								<font size="3">
@@ -215,7 +215,7 @@
 		</script>
 		
 		<!--スマホ用メニューバー-->
-		<img src="images/icon_bar.png" width="20" height="23" alt="" id="menubar_hdr" class="close">
+		<img src="${pageContext.request.contextPath}/images/icon_bar.png" width="20" height="23" alt="" id="menubar_hdr" class="close">
 		<script type="text/javascript">
 			if (OCwindowWidth() < 480) {
 				open_close("menubar_hdr", "menubar");
@@ -271,6 +271,17 @@
 		<script>
 			function showTop(){
 				location.href = "${pageContext.request.contextPath}/front/top";
+			}
+		</script>
+		
+
+		<script>
+			var arr = document.getElementById("memberid").value;
+			parseInt(arr);
+			if(arr >0){
+				document.getElementById("usermenu").innerHTML = "<a href=\"${pageContext.request.contextPath}/front/mypage\">マイページ</a>&nbsp;<a href=\"${pageContext.request.contextPath}/front/logoutcomp\">ログアウト</a>";	
+			}else{
+				document.getElementById("usermenu").innerHTML = "<a href=\"${pageContext.request.contextPath}/front/userentry\">会員登録</a>&nbsp;<a href=\"${pageContext.request.contextPath}/front/login\">ログイン</a>";
 			}
 		</script>
 	</body>

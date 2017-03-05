@@ -8,7 +8,7 @@
 	
 	<body>
 		<div align="center">
-			<img src="${pageContext.request.contextPath}/images/cartadd.png"width="600" height="350"alt="New Menber Resist"></a>
+			<img src="${pageContext.request.contextPath}/images/cartadd.png" width="600" height="350"alt="New Menber Resist"></a>
 			<p>※3秒後に自動的にページが移動します</p>
 		</div>
 		

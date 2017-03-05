@@ -34,6 +34,8 @@ public abstract class CommandFactory {
 		try {
 			properties.load(new FileInputStream(FILE_PATH));
 
+			System.out.println("commandPath="+requestContext.getCommandPath());
+
 			String className = properties.getProperty(requestContext.getCommandPath());
 
 			Class c = Class.forName(className);

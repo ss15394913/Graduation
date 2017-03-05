@@ -118,7 +118,7 @@
 					<p id="editButton">
 						<form action="${pageContext.request.contextPath}/front/editcart" method="post">
 							<input type="hidden" name="productid" value="${product.productId}">
-							<input type="number" name="itemcount" value="1">注文数
+							<input type="number" name="itemcount" value="1" min="1">注文数
 							<input type="submit" value="注文数変更">
 						</form>
 					</p>

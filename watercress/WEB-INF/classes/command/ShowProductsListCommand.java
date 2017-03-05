@@ -150,10 +150,11 @@ public class ShowProductsListCommand extends AbstractCommand{
 		/*ログイン中の会員のIDを取得する。*/
 		/*ログインしていない場合は-1を格納する。*/
 		int loginMemberId = -1;
-		if(requestContext.getSessionAttribute("login") != null){
-			String idAttribute
-			= (String)requestContext.getSessionAttribute("login");
-			loginMemberId = Integer.parseInt(idAttribute);
+		//if文書き換え 千鶴
+		String login = (String)requestContext.getSessionAttribute("login");
+		if(login != null &&  !("".equals(login))){
+			System.out.println("login="+login);
+			loginMemberId = Integer.parseInt(login);
 		}
 
 		/*このコマンドのresultとなる、各商品の情報と該当する商品の数*/
