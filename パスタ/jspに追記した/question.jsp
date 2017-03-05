@@ -23,7 +23,7 @@
 					<img src="${pageContext.request.contextPath}/images/logo.png" width="275" alt="Sample Online Shop" onclick="showTop()">
 				</h1>
 				<div class="headermenu">
-					<ul id="usermenu">
+					<ul>
 						<a href="${pageContext.request.contextPath}/front/userentry">会員登録</a>
 						<a href="${pageContext.request.contextPath}/front/login">ログイン</a>
 					</ul>
@@ -149,4 +149,13 @@
 			</script>
 		</div>
 	</body>
+	<script>
+		var arr = document.getElementById("memberid").value;
+		parseInt(arr);
+		if(arr >0){
+			document.getElementById("usermenu").innerHTML = "<a href=\"${pageContext.request.contextPath}/front/mypage\">マイページ</a>&nbsp;<a href=\"${pageContext.request.contextPath}/front/logoutcomp\">ログアウト</a>";	
+		}else{
+			document.getElementById("usermenu").innerHTML = "<a href=\"${pageContext.request.contextPath}/front/userentry\">会員登録</a>&nbsp;<a href=\"${pageContext.request.contextPath}/front/login\">ログイン</a>";
+		}
+	</script>
 </html>

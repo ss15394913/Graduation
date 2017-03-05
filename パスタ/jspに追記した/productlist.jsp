@@ -49,15 +49,7 @@ out.print("<script>$(\".favoButton\").click(function() {var num = $(this).data(\
       ${productId}
       <%out.print("type: 'POST',dataType: 'json',data: {favonum: num},}).done(function(data, textStatus, jqXHR) {if(data.result == true){$(button).css('backgroundColor', '');$(button).data('condition',false);}}).fail(function(data) {console.log(\"error\");});}});</script>");%>
 </head>
-<script>
-		var arr = document.getElementById("memberid").value;
-		parseInt(arr);
-		if(arr >0){
-			document.getElementById("usermenu").innerHTML = "<a href=\"${pageContext.request.contextPath}/front/mypage\">マイページ</a>&nbsp;<a href=\"${pageContext.request.contextPath}/front/logoutcomp\">ログアウト</a>";	
-		}else{
-			document.getElementById("usermenu").innerHTML = "<a href=\"${pageContext.request.contextPath}/front/userentry\">会員登録</a>&nbsp;<a href=\"${pageContext.request.contextPath}/front/login\">ログイン</a>";
-		}
-	</script>
+
 <body id="top" class="c1">
 
 <div id="container">
@@ -260,4 +252,13 @@ out.print("<script>$(\".favoButton\").click(function() {var num = $(this).data(\
 
 </footer>
 </body>
+<script>
+		var arr = document.getElementById("memberid").value;
+		parseInt(arr);
+		if(arr >0){
+			document.getElementById("usermenu").innerHTML = "<a href=\"${pageContext.request.contextPath}/front/mypage\">マイページ</a>&nbsp;<a href=\"${pageContext.request.contextPath}/front/logoutcomp\">ログアウト</a>";	
+		}else{
+			document.getElementById("usermenu").innerHTML = "<a href=\"${pageContext.request.contextPath}/front/userentry\">会員登録</a>&nbsp;<a href=\"${pageContext.request.contextPath}/front/login\">ログイン</a>";
+		}
+	</script>
 </html>

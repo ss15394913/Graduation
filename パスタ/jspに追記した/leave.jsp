@@ -6,15 +6,6 @@
 		<meta http-equiv="content-type" content="text/html; charset=utf-8">
 		<title>退会確認</title>
 	</head>
-	<script>
-		var arr = document.getElementById("memberid").value;
-		parseInt(arr);
-		if(arr >0){
-			document.getElementById("usermenu").innerHTML = "<a href=\"${pageContext.request.contextPath}/front/mypage\">マイページ</a>&nbsp;<a href=\"${pageContext.request.contextPath}/front/logoutcomp\">ログアウト</a>";	
-		}else{
-			document.getElementById("usermenu").innerHTML = "<a href=\"${pageContext.request.contextPath}/front/userentry\">会員登録</a>&nbsp;<a href=\"${pageContext.request.contextPath}/front/login\">ログイン</a>";
-		}
-	</script>
 	<body>
 		<div align="center">
 			<img src="${pageContext.request.contextPath}/images/leavetitle.png" width="600" height="300"alt="New Menber Resist"></a>
