@@ -139,6 +139,19 @@
 					</td>
 				</tr>
 			</table><br><br><br><br><br><br>
+			<div id="sub">
+			
+				<nav class="box1">
+					<h2>MENU</h2>
+					<ul class="submenu mb10">
+						<li><a href="${pageContext.request.contextPath}/front/companyinfo">会社概要</a></li>
+						<li><a href="${pageContext.request.contextPath}/front/tos">利用規約</a></li>
+						<li><a href="${pageContext.request.contextPath}/front/sitemap">サイトマップ</a></li>
+						<li><a href="${pageContext.request.contextPath}/front/privacypolicy">個人情報保護方針</a></li>
+						<li><a href="${pageContext.request.contextPath}/front/deal">特定商取引法</a></li>
+					</ul>
+				</nav>
+			</div>
 			
 			<p id="pagetop"><a href="#">↑ PAGE TOP</a></p>
 		</div>
