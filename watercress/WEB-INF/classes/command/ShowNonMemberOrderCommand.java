@@ -35,7 +35,7 @@ public class ShowNonMemberOrderCommand extends AbstractCommand {
 
 		memberInformation.put("orderprice",String.valueOf(orderprice));
 
-		responseContext.setResult(memberInformation);
+		requestContext.setSessionAttribute("memberInformation",memberInformation);
 
 		responseContext.setTarget("nonmemberorder");
 

@@ -37,7 +37,10 @@ public class ShowOrderCheckCommand extends AbstractCommand {
 		*/
 		
 		String payment_method = requestContext.getParameter("payment_method")[0];
+		
 		HashMap<String,String> parameters = new HashMap<String,String>();
+		
+		requestContext.setSessionAttribute("payment_method",payment_method);
 		
 		if(payment_method.equals("creditCard")){
 			/*クレジットカードの番号16桁を取得*/
@@ -70,8 +73,7 @@ public class ShowOrderCheckCommand extends AbstractCommand {
 			
 			String orderprice = requestContext.getParameter("orderprice")[0];
 			
-			String totalprice = 
-			String.valueOf(Integer.parseInt(orderprice) + new Integer(324));
+			String totalprice = String.valueOf(Integer.parseInt(orderprice) + new Integer(324));
 			
 			orderprice = "&yen;" + orderprice;
 			totalprice = "&yen;" + totalprice;
@@ -79,10 +81,6 @@ public class ShowOrderCheckCommand extends AbstractCommand {
 			parameters.put("orderprice",orderprice);
 			parameters.put("totalprice",totalprice);
 		}
-			parameters.put("name",requestContext.getParameter("name")[0]);
-		/*
-			リクエストスコープのparameterを確認画面にの表示するためのmapに格納
-		*/
 		
 		String firstname = requestContext.getParameter("firstname")[0];
 		String name = requestContext.getParameter("name")[0];

@@ -19,6 +19,9 @@ package command;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.ArrayList;
+import java.util.Map;
+import java.util.HashMap;
 
 import bean.MemberBean;
 import bean.ProductStockBean;
@@ -48,19 +51,26 @@ public class OrderExecutionCommand extends AbstractCommand {
 	throws LogicException {
 		/*initメソッドによって準備されていたRequestContextを取得する*/
 		requestContext = getRequestContext();
-
+		
+		ArrayList cart = (ArrayList) requestContext.getSessionAttribute("cart");
+		
+		String[] orderProductsId = new String[cart.size()];
+		
+		String[] orderCountsStr = new String[cart.size()];
+		
 		/*注文する商品のIDの配列をセッションスコープから取得する*/
-		String[] orderProductsId =
-		(String[])requestContext.getSessionAttribute("orderproducts");
-
 		/*注文する商品の個数の配列をセッションスコープから取得する*/
-		String[] orderCountsAttribute =
-			(String[])requestContext.getSessionAttribute("ordercounts");
+		for(int i = 0;i<cart.size();i++){
+			HashMap<String,String> productInformation = (HashMap<String,String>)cart.get(i);
+			orderProductsId[i] = (String)productInformation.get("productId");
+			orderCountsStr[i] = (String)productInformation.get("count");
+		}
+		
 
 		/*注文する商品の個数の配列をint配列型に変換する*/
-		int[] orderCounts = new int[orderCountsAttribute.length];
-		for(int i = 0; i < orderCountsAttribute.length; i++){
-			orderCounts[i] = Integer.parseInt(orderCountsAttribute[i]);
+		int[] orderCounts = new int[orderCountsStr.length];
+		for(int i = 0; i < orderCountsStr.length; i++){
+			orderCounts[i] = Integer.parseInt(orderCountsStr[i]);
 		}
 
 		try{
@@ -72,6 +82,8 @@ public class OrderExecutionCommand extends AbstractCommand {
 
 			/*最後に在庫数の変更を行う。*/
 			updateProductStocks(orderProductsId,orderCounts);
+			
+			requestContext.removeSessionAttribute("cart");
 
 		}catch(LogicException e){
 			throw new LogicException(e.getMessage(), e);
@@ -171,10 +183,10 @@ public class OrderExecutionCommand extends AbstractCommand {
 				/*非会員情報の登録を行い、その情報のIDをBeanに格納*/
 				purchaseOrder.setMemberId(registTemporaryMember());
 			}
-
+			
 			/*支払い方法をセッションスコープから取得し、Beanに格納する*/
 			purchaseOrder.setPurchaseOrderPaymentMethod(
-				(String)requestContext.getSessionAttribute("paymentmethod"));
+				(String)requestContext.getSessionAttribute("payment_method"));
 
 			/*注文の情報を登録し、行った注文の注文IDを取得する*/
 			int purchaseOrderId
