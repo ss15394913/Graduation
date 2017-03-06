@@ -118,7 +118,7 @@
 					　番地　<input name="blocknumber" value="${memberInformation.addr3}" maxlength="30" type="text" id="address_3" class="p-street-address" autocomplete="address-line1" required />&nbsp;例：東中野4-2-3&nbsp;<span style="color: red;">※必須</span><br>
 					&nbsp;建物名&nbsp;&nbsp;<input name="bildingname" value="${memberInformation.addr4}" maxlength="30" type="text" id="address_4" class="p-extended-address" autocomplete="address-line2" />&nbsp;例：専門学校東京テクニカルカレッジ<br><br>
 					
-					電話番号<input type="text" name="phonenumber" value="${memberInformation.phonenumber}" maxlength="11" minlength="10"pattern="^[0-9]" required>&nbsp;例：0120444906&nbsp;※半角数字のみ、ハイフン(-)は入れない&nbsp;<span style="color: red;">※必須</span><br><br>
+					電話番号<input type="text" name="phonenumber" value="${memberInformation.phonenumber}" maxlength="11" minlength="10"pattern="^[0-9]+$" required>&nbsp;例：0120444906&nbsp;※半角数字のみ、ハイフン(-)は入れない&nbsp;<span style="color: red;">※必須</span><br><br>
 					
 					
 					<h3>配達時間指定</h3>

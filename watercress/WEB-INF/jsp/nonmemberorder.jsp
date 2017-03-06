@@ -18,8 +18,8 @@
 		<style>
 			#card_0 {width: 120px;}
 			#card_1 {width: 35px;}
-			#card_2 {width: 18px;}
-			#card_3 {width: 18px;}
+			#card_2 {width: 60px;}
+			#card_3 {width: 40px;}
 			.name {width: 120px;}
 			.req {color: red;}
 		</style>
@@ -30,7 +30,7 @@
 		<script type="text/javascript" src="${pageContext.request.contextPath}/js/memberorder.js" charset="UTF-8"></script>
 	</head>
 	<body id="top" class="c1">
-		<input type="hidden" value="${sessionScope.login}" id="memberid">
+		<input type="hidden" value="${memberInformation.login}" id="memberid">
 		<div id="container">
 		
 			<header>
@@ -119,9 +119,9 @@
 					<!-- クレジットか代引きのチェックボックス（クレジットの場合記述必須にする）--><br><br>
 					<h3>お支払方法の選択&nbsp;</h3><p class="req">※必須</p>
 					<input id="pay_card" type="radio" name="payment_method" value="creditCard" onclick="changeRequiredCardInfo();">クレジットカード<br>
-					　カード番号<input class="card" id="card_0" type="text" name="creditcardnumber" disabled>&nbsp;例：1234123412341234&nbsp;※半角数字のみ<br>
-					　セキュリティコード<input class="card" id="card_1" type="text" name="securitycode" disabled="true" minlength="3" maxlength="4">
-					<select class="card" id="card_2" type="text" name="expirationdate_year" disabled="true">
+					　カード番号<input class="card" id="card_0" type="text" name="creditcardnumber" minlength="16" maxlength="16">&nbsp;例：1234123412341234&nbsp;※半角数字のみ<br>
+					　セキュリティコード<input class="card" id="card_1" type="text" name="securitycode" minlength="3" maxlength="4">
+					<select class="card" id="card_2" type="text" name="expirationdate_year">
 						<option value="2017">2017</option>
 						<option value="2018">2018</option>
 						<option value="2019">2019</option>
@@ -130,7 +130,7 @@
 						<option value="2020">2023</option>
 						<option value="2020">2024</option>
 					</select>年
-					<select class="card" id="card_3" type="text" name="expirationdate_month" disabled="true">
+					<select class="card" id="card_3" type="text" name="expirationdate_month">
 						<option value="">--</option>
 						<option value="1">1</option>
 						<option value="2">2</option>
@@ -151,7 +151,7 @@
 					<table class="ta1">
 						<tr>
 							<th>注文合計</th>
-							<td id="order_total" name="order_total">${data.orderprice}円</td>
+							<td id="order_total" name="order_total">${memberInformation.orderprice}円</td>
 						</tr>
 						<tr>
 							<th>手数料</th>
@@ -159,12 +159,12 @@
 						</tr>
 						<tr>
 							<th>合計</th>
-							<td id="payment_total" name="total_price">${data.totalprice}円</td>
+							<td id="payment_total" name="total_price">${memberInformation.totalprice}円</td>
 						</tr>
 					</table><br>
 					
-					<input type="hidden" value="" name="orderprice">
-					<input id="hiddentotalprice" type="hidden" value="" name="totalprice">
+					<input type="hidden" value="${memberInformation.orderprice}" name="orderprice">
+					<input id="hiddentotalprice" type="hidden" value="${memberInformation.totalprice}" name="totalprice">
 					<p><input type="submit" value="注文する"></p>
 				</form>
 			</div>

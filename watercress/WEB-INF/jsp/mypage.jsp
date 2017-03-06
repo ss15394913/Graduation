@@ -40,7 +40,7 @@
 				</div>
 				
 				<div id="cart">
-					<a href="${pageContext.request.contextPath}/front/mypage">CART</a>
+					<a href="${pageContext.request.contextPath}/front/cart">CART</a>
 				</div>
 				
 			</header>

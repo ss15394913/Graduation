@@ -116,15 +116,14 @@
 					<p id="editButton">
 						<form action="${pageContext.request.contextPath}/front/editcart" method="post">
 							<input type="hidden" name="productid" value="${product.productId}">
-							<input type="number" name="itemcount" value="1">注文数
+							<input type="number" name="itemcount" value="1" min="1">注文数
 							<input type="submit" value="注文数変更">
 						</form>
 					</p>
 			</section>
 		</c:forEach><br><br><br><br>
-	<section id="buyButton">
-	<p>p</p>
-	</section>.
+	<div align="center"><section id="buyButton"></div>
+	</section>
 	<section id="price">
 		
 	</section>
@@ -170,11 +169,11 @@
 		var arr = document.getElementById("memberid").value;
 		parseInt(arr);
 		if(arr >0){
-			document.getElementById("buyButton").innerHTML = "<h1>購入する</h1><form action=\"${pageContext.request.contextPath}/front/memberorder\" method=\"post\"><input type=\"submit\" value=\"購入する\"></form>";
+			document.getElementById("buyButton").innerHTML = "<form action=\"${pageContext.request.contextPath}/front/memberorder\" method=\"post\"><input type=\"submit\" value=\"購入する\"></form>";
 			document.getElementById("usermenu").innerHTML = "<a href=\"${pageContext.request.contextPath}/front/mypage\">マイページ</a>&nbsp;<a href=\"${pageContext.request.contextPath}/front/logoutcomp\">ログアウト</a>";	
 
 		}else{
-			document.getElementById("buyButton").innerHTML = "<h1>会員登録せず購入</h1><a href=\"${pageContext.request.contextPath}/front/nonmemberorder\"><img src=\"${pageContext.request.contextPath}/images/no_member.png\" width=\"240\" height=\"80\" alt=\"New Menber Resist\"></a><h1>ログインして購入</h1><form action=\"${pageContext.request.contextPath}/front/cartlogin\" method=\"post\"><th>Email</th><td><input type=\"email\" name=\"email\" size=\"24\"></td><th>Password</th><td><input type=\"password\" name=\"pass\" minlength=\"8\" value=\"\" size=\"24\"><br></td><p><input type=\"submit\" value=\"ログイン\"></p><br>";
+			document.getElementById("buyButton").innerHTML = "<h1>会員登録せず購入</h1><a href=\"${pageContext.request.contextPath}/front/nonmemberorder\"><img src=\"${pageContext.request.contextPath}/images/no_member.png\" width=\"240\" height=\"80\" alt=\"New Menber Resist\"></a><h1>ログインして購入</h1><form action=\"${pageContext.request.contextPath}/front/cartlogin\" method=\"post\"><th>Email</th><td><input type=\"email\" name=\"email\" size=\"24\"></td>&nbsp;&nbsp;<th>Password</th><td><input type=\"password\" name=\"pass\" minlength=\"8\" value=\"\" size=\"24\"><br></td><p><input type=\"submit\" value=\"ログイン\"></p><br>";
 			document.getElementById("usermenu").innerHTML = "<a href=\"${pageContext.request.contextPath}/front/userentry\">会員登録</a>&nbsp;<a href=\"${pageContext.request.contextPath}/front/login\">ログイン</a>";
 
 		}

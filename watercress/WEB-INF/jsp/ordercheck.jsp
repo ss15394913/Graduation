@@ -97,16 +97,16 @@
 					</c:forEach>
 					
 					<h3>お届け先のお客様の情報</h3>
-					名前:${data.firstname}${data.name}<br>
-					ナマエ:${data.kanafirstname}${data.kananame}<br><br>
+					名前：${data.firstname}&nbsp;${data.name}<br>
+					ナマエ：${data.kanafirstname}&nbsp;${data.kananame}<br><br>
 					
 					<h3>お届け先住所</h3>
-					〒郵便番号:${data.zipcode}<br>
-					住所:${data.prefectures}${data.city}${data.blocknumber}${data.bildingname}<br><br>
+					〒郵便番号：${data.zipcode}<br>
+					住所：${data.prefectures}&nbsp;${data.city}&nbsp;${data.blocknumber}&nbsp;${data.bildingname}<br><br>
 					
 					<h3>配達予定</h3>
-					予定日:${data.delivery_request_day}<br>
-					予定時間:${data.delivery_request_time}<br><br>
+					予定日：${data.delivery_request_day}<br>
+					予定時間：${data.delivery_request_time}<br><br>
 					
 					<h3>お支払い方法</h3>
 					${data.payment_information}<br><br><br>
@@ -130,12 +130,12 @@
 				</table>
 			</div>
 			<!--/contents-->
-			
-			<a href="${pageContext.request.contextPath}/front/ordercomp">
-				<img src="${pageContext.request.contextPath}/images/buy.png" width="240" height="80" alt="New Menber Resist"></a>
-			<a href="javascript:history.back();">
-				<img src="${pageContext.request.contextPath}/images/notyet.png" width="240" height="80" alt="New Menber Resist"></a>
-			
+			<div align="center">
+				<a href="${pageContext.request.contextPath}/front/ordercomp">
+					<img src="${pageContext.request.contextPath}/images/buy.png" width="240" height="80" alt="New Menber Resist"></a>
+				<a href="javascript:history.back();">
+					<img src="${pageContext.request.contextPath}/images/notyet.png" width="240" height="80" alt="New Menber Resist"></a>
+			</div>
 		</div>
 		<!--/container-->
 		

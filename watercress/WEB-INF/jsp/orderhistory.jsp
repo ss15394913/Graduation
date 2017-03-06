@@ -44,7 +44,7 @@
 					<a href="${pageContext.request.contextPath}/front/userentry">会員登録</a>
 					<a href="${pageContext.request.contextPath}/front/login">ログイン</a>
 				</ul>
-				<div id="cart"><a href="#">CART</a></div>
+				<div id="cart"><a href="${pageContext.request.contextPath}/front/cart">CART</a></div>
 			</div>
 		</header>
 		
