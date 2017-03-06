@@ -180,7 +180,7 @@
 									
 									</figure>
 									<h4 style="position: absolute">${product.catalog.productName}
-									<br/> ￥${product.catalog.productPrice}<br/></h4>
+									<br/> ￥${product.catalog.productPrice}<br/></h4><br><br>
 								</a>
 						</section>
 					</td>
