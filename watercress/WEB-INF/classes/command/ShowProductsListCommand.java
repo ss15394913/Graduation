@@ -180,6 +180,7 @@ public class ShowProductsListCommand extends AbstractCommand{
 		= getSubCategoryId(selectedSubCategoryName);
 		/*現在ログイン中の会員の、
 		  お気に入りの商品のIDのリストを分割したメソッドで取得する*/
+		System.out.println(loginMemberId);
 		List memberFavoriteList = getMemberFavoriteList(loginMemberId);
 		Iterator catalogIterator = allCatalogList.iterator();
 		while(catalogIterator.hasNext()){
@@ -232,6 +233,7 @@ public class ShowProductsListCommand extends AbstractCommand{
 							product.getExampleProductId())){
 							isFavorite = true;
 						}
+						System.out.println(isFavorite);
 						productData.put("isFavorite",isFavorite);
 						/*カテゴリ名を分割したメソッドから取得する*/
 						String categoryName
@@ -330,10 +332,8 @@ public class ShowProductsListCommand extends AbstractCommand{
 
 	/*現在ログイン中の会員の、
 	  お気に入りの商品のIDのリストを分割したメソッドで取得するメソッド*/
-	private List getMemberFavoriteList(int loginMemberId)
+	private List getMemberFavoriteList(Integer loginMemberId)
 	throws LogicException{
-		/*全お気に入りの情報のリスト*/
-		allFavoriteList = null;
 		/*このメソッドが返す、
 		  ログイン中の会員のお気に入り商品のIDのリスト*/
 		List memberFavoriteList = new ArrayList();
@@ -345,8 +345,9 @@ public class ShowProductsListCommand extends AbstractCommand{
 				= (FavoriteBean)favoriteIterator.next();
 				/*お気に入りの情報の会員IDとログイン中の会員のIDが
 				  同じならそのお気に入り情報の商品のIDをリストに追加*/
-				if(loginMemberId == favorite.getMemberId()){
+				if(loginMemberId.equals(new Integer(favorite.getMemberId()))){
 					memberFavoriteList.add(favorite.getProductId());
+					System.out.print("FavoriteProductId:"+favorite.getProductId());
 				}
 			}
 		}

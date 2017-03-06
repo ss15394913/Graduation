@@ -134,7 +134,6 @@ public class OraFavoriteDao implements FavoriteDao {
 
 			/*コミットを行う*/
 			connection.commit();
-			/*Statement、Connectionをクローズする*/
 			preparedStatement.close();
 			connection.close();
 			/*例外が発生したら、finally句でクローズを行う*/
@@ -170,6 +169,7 @@ public class OraFavoriteDao implements FavoriteDao {
 		/*データベースの接続、表データの取得で使用する変数の宣言*/
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
+
 		/*データベースへの接続*/
 		try{
 			connection
@@ -198,7 +198,6 @@ public class OraFavoriteDao implements FavoriteDao {
 
 			/*コミットを行う*/
 			connection.commit();
-			/*Statement、Connectionをクローズする*/
 			preparedStatement.close();
 			connection.close();
 			/*例外が発生したら、finally句でクローズを行う*/

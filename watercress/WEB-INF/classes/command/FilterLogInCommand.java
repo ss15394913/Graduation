@@ -48,15 +48,27 @@ public class FilterLogInCommand extends AbstractCommand {
 			if(flag){
 				System.out.println("メールアドレスが違います");		//ここを書き換えてjspに表示したい(余裕があれば)
 				reqc.setSessionAttribute("login", "");
-
 				/*ログイン失敗時に表示するメッセージ*/
 				reqc.setSessionAttribute("message1", new String("ログインに失敗しました。以下の内容が原因の可能性があります。"));
-				reqc.setSessionAttribute("message2", new String("・入力メールアドレスに間違いがある。パスワードが違う。"));
-				reqc.setSessionAttribute("message3", new String("・入力されたメールアドレスは登録がされていないか、本登録が済んでいません"));
+				reqc.setSessionAttribute("message2", new String("・入力されたメールアドレスに間違いがある。"));
 			}
 
-			responseContext.setTarget((String)reqc.getSessionAttribute("target"));
 
+			/* セッションからログイン情報を取得 */
+			String login = (String)reqc.getSessionAttribute("login");
+//			System.out.println("login=" + login);
+
+			/* 未ログイン・ログインに失敗した場合、
+				ログイン画面へ飛ばす */
+			if(login == null || "".equals(login)) {
+				responseContext.setTarget((String)reqc.getSessionAttribute("target"));
+			/* ログイン成功の場合、成功画面→購入画面へ飛ばす */
+			}else {
+				responseContext.setTarget("filterlogincomp");
+				/*成功の場合エラーメッセージを削除*/
+				reqc.removeSessionAttribute("message1");
+				reqc.removeSessionAttribute("message2");
+			}
 		}catch(IntegrationException e){
 			throw new LogicException(e.getMessage(), e);
 		}
@@ -79,21 +91,16 @@ public class FilterLogInCommand extends AbstractCommand {
 				reqc.setSessionAttribute("login", "");
 				/*ログイン失敗時に表示するメッセージ*/
 				reqc.setSessionAttribute("message1", new String("ログインに失敗しました。以下の内容が原因の可能性があります。"));
-				reqc.setSessionAttribute("message2", new String("・入力メールアドレスに間違いがある。パスワードが違う。"));
-				reqc.setSessionAttribute("message3", new String("・入力されたメールアドレスは登録がされていないか、本登録が済んでいません"));
-
+				reqc.setSessionAttribute("message2", new String("・入力されたアカウントは退会済みか、本登録が済んでいない。"));
 			}
 		/* パスワードが違う場合(ログイン失敗)、
 			セッションにログインが失敗したことを登録*/
 		}else{
 			System.out.println("パスワードが違います");				//ここを書き換えてjspに表示したい(余裕があれば)
 			reqc.setSessionAttribute("login", "");
-
 			/*ログイン失敗時に表示するメッセージ*/
 			reqc.setSessionAttribute("message1", new String("ログインに失敗しました。以下の内容が原因の可能性があります。"));
-			reqc.setSessionAttribute("message2", new String("・入力メールアドレスに間違いがある。パスワードが違う。"));
-			reqc.setSessionAttribute("message3", new String("・入力されたメールアドレスは登録がされていないか、本登録が済んでいません"));
-
+			reqc.setSessionAttribute("message2", new String("・入力されたパスワードに間違いがある。"));
 		}
 	}
 }

@@ -1,5 +1,5 @@
 /*
-  @author ’r“c‘å˜a
+  @author æ± ç”°å¤§å’Œ
 */
 package dao;
 
@@ -8,12 +8,12 @@ import java.util.List;
 import bean.FavoriteBean;
 import ex.IntegrationException;
 
-/*‚¨‹C‚É“ü‚è‚Ìî•ñ‚ğæ“¾‚·‚é‚½‚ß‚É—˜—p‚·‚éƒf[ƒ^ƒAƒNƒZƒXƒIƒuƒWƒFƒNƒg*/
+/*ãŠæ°—ã«å…¥ã‚Šã®æƒ…å ±ã‚’å–å¾—ã™ã‚‹ãŸã‚ã«åˆ©ç”¨ã™ã‚‹ãƒ‡ãƒ¼ã‚¿ã‚¢ã‚¯ã‚»ã‚¹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ*/
 public interface FavoriteDao {
-	/*‘S‚Ä‚Ì‚¨‹C‚É“ü‚è‚Ìî•ñ‚ğæ“¾‚·‚éƒƒ\ƒbƒh*/
+	/*å…¨ã¦ã®ãŠæ°—ã«å…¥ã‚Šã®æƒ…å ±ã‚’å–å¾—ã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰*/
 	public List getFavorites() throws IntegrationException;
-	/*‚¨‹C‚É“ü‚è‚ğ“o˜^‚·‚éƒƒ\ƒbƒh*/
+	/*ãŠæ°—ã«å…¥ã‚Šã‚’ç™»éŒ²ã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰*/
 	public void addFavorite(FavoriteBean favorite) throws IntegrationException;
-	/*‚¨‹C‚É“ü‚è‚ğíœ‚·‚éƒƒ\ƒbƒh*/
+	/*ãŠæ°—ã«å…¥ã‚Šã‚’å‰Šé™¤ã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰*/
 	public void removeFavorite(FavoriteBean favorite) throws IntegrationException;
 }
