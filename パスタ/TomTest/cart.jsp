@@ -1,151 +1,188 @@
-<%@ page contentType="text/html;utf-8"
-	import="java.util.List"
-	import="java.util.ArrayList"
-	import="java.util.Iterator"
-	pageEncoding="utf-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-	
-<!--更新ボタン押すと直前の商品が追加されちゃう状態です-->
-<!--塩澤、河野-->
-	
+<%@page pageEncoding="UTF-8"
+	contentType="text/html;charset=UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!doctype html>
 <html lang="ja">
-<head>
-<meta charset="utf-8">
-<title>Watercress_TOP</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="copyright" content="Template Party">
-<meta name="description" content="ここにサイト説明を入れます">
-<meta name="keywords" content="キーワード１,キーワード２,キーワード３,キーワード４,キーワード５">
-<link rel="stylesheet" href="css/style.css">
-<!--[if lt IE 9]>
-<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-<style>.ddmenu {display: none;}</style>
-<![endif]-->
-<script type="text/javascript" src="js/openclose.js"></script>
-<script type="text/javascript" src="ddmenu_min.js"></script>
-</head>
-
-<body id="top" class="c1">
-
-<div id="container">
-
-<header>
-<h1 id="logo"><a href="top.html"><img src="images/logo.png" width="370" height="60" alt="Sample Online Shop"></a></h1>
-<div class="headermenu">
-<ul>
-<a href="userentry.html">会員登録</a>
-<a href="login.html">ログイン</a>
-</ul>
-<div id="cart"><a href="#">CART</a></div>
-</header>
-
-<nav id="menubar">
-<ul>
-<li class="arrow"><a>CATEGORY</a>
-    <ul class="ddmenu">
-    <li><a href="list.html">TOPS</a></li>
-    <li><a href="list2.html">BOTTOMS</a></li>
-    <li><a href="list3.html">UNDER</a></li>
-    <li><a href="list4.html">SHOES</a></li>
-    <li><a href="list5.html">ACCESSORIES</a></li>
-	</ul>
-</li>
-<li class="arrow"><a href="productlist.html">SALE</a>
-</li>
-<li class="arrow"><a href="productlist.html">RANKING</a>
-</li>
-<li class="arrow"><a href="productlist.html">ALLITEM</a>
-</li>
-<li class="arrow"><a>HELP</a>
-    <ul class="ddmenu">
-    <li><a href="contact.html">お問い合わせ</a></li>
-    <li><a href="question.html">Q&A</a></li>
-</li>
-</ul>
-</nav>
-
-
-<head><title>商品一覧</title></head>
-<body>
-<%
-	/*複数の商品を入れるためのリストを作成*/
-	List name = new ArrayList();
-	String def = "現在カートの中に商品はありません";
-	
-	/*ObjectのmaxNumをint型に変換*/
-	/*getAttributeはObject型を返すので、一旦Integer型に変換してから
-	int型に変換する必要がある*/
-	
-	Integer maxInteger = (Integer)session.getAttribute("maxNum");
-	if(maxInteger==null){
-		maxInteger=-1;
-	}
-	int maxInt = maxInteger.intValue();
-	
-	
-	/*CartProductServletで先に+1されてるので数合わせのために-1する*/
-	maxInt -= 1;
-	
-	/*0以上maxInt以下*/
-	for(int j = 0;j <= maxInt;j ++){
-		
-		/*変数jと同じ数字のresultがname[j]に入る*/
-		name.add((String)session.getAttribute("result" + j));
-	}
-	if(name == null){
-		name.add(def);
-	}
-	if(maxInteger<=-1){
-		name.add(def);
-	}
-	
-%>
-	<h1>商品一覧</h1>
-	<form  method="post" action="EditCart">
-	
-	<table border="1">
-		<tr><th>商品名</th></tr>
-		<%
-			int i=0;
-			Iterator it = name.iterator();
-			while(it.hasNext()){
-				out.println(
-				"<tr><td><input type="+"checkbox"+" name="+"listNumber"+" value="+i+">"
-				+it.next()+"</td></tr>");
-				i++;
+	<head>
+		<meta charset="utf-8">
+		<title>カート</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="copyright" content="Template Party">
+		<meta name="description" content="ここにサイト説明を入れます">
+		<meta name="keywords" content="キーワード１,キーワード２,キーワード３,キーワード４,キーワード５">
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+	<!--[if lt IE 9]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<style>.ddmenu {display: none;}</style>
+	<![endif]-->
+		<script type="text/javascript" src="${pageContext.request.contextPath}/js/openclose.js"></script>
+		<script type="text/javascript" src="${pageContext.request.contextPath}/js/ddmenu_min.js"></script>
+		<style>
+			#deleteButton{
+				align:right;
 			}
-		%>
-	</table>
-	<br>
-	<br>
-	<br>
-	<input type="submit" value="削除">
-	</form>
-	<br>
-	<br>
-	<h1>商品削除</h1>
+			#editButton{
+				align:right;
+			}
+			#section_button{
+				margin-right:100px;
+				align:top;
+			}
+			#info_section{
+				float:left;
+			}
+		</style>
 	
-	<a href="start.jsp">TOPへ</a>
-</body>
+	</head>
+	<body id="top" class="c1">
+		<div id="container">
+		<header>
+			<h1 id="logo">
+				<img src="${pageContext.request.contextPath}/images/logo.png" width="275" alt="Sample Online Shop" onclick="showTop()">
+			</h1>
+			<div class="headermenu">
+				<ul id="usermenu">
+					<a href="${pageContext.request.contextPath}/front/userentry">会員登録</a>
+					<a href="${pageContext.request.contextPath}/front/login">ログイン</a>
+				</ul>
+			<div id="cart">
+				<a href="${pageContext.request.contextPath}/front/cart">CART</a>
+			</div>
+		</header>
 
-<footer>
+		<nav id="menubar">
+			<ul>
+				
+				<li class="arrow">
+					<a>CATEGORY</a>
+					<ul class="ddmenu">
+						<li><a href="${pageContext.request.contextPath}/front/productlist?category=tops">TOPS</a></li>
+						<li><a href="${pageContext.request.contextPath}/front/productlist?category=bottoms">BOTTOMS</a></li>
+						<li><a href="${pageContext.request.contextPath}/front/productlist?category=under">UNDER</a></li>
+						<li><a href="${pageContext.request.contextPath}/front/productlist?category=shoes">SHOES</a></li>
+						<li><a href="${pageContext.request.contextPath}/front/productlist?category=accessories">ACCESSORIES</a></li>
+					</ul>
+				</li>
+                
+				<li class="arrow">
+					<a href="${pageContext.request.contextPath}/front/productlist?searchTag=セール">SALE</a>
+				</li>
 
-<div class="footermenu">
-<ul>
-<a href="companyinfo.html">会社概要　　　</a>
-<a href="tos.html">　　　利用規約</a>
-<a href="sitemap.html">　　　サイトマップ</a>
-<a href="privacypolicy.html">　　　個人情報保護方針</a>
-<a href="deal.html">　　　特定商取引法</a>
-<a href="contact.html">　　　お問い合わせ</a>
-<a href="question.html">　　　Q&A</a>
-<br>
-<br>
-</ul>
+				<li class="arrow">
+					<a href="${pageContext.request.contextPath}/front/productlist?sort=purchaseDesc">RANKING</a>
+				</li>
+                
+				<li class="arrow">
+					<a href="${pageContext.request.contextPath}/front/productlist">ALLITEM</a>
+				</li>
+                
+				<li class="arrow">
+					<a>HELP</a>
+					<ul class="ddmenu">//koko
+						<li><a href="${pageContext.request.contextPath}/front/contact">お問い合わせ</a></li>
+						<li><a href="${pageContext.request.contextPath}/front/question">Q&A</a></li>
+				</li>
+			</ul>
+		</nav>
 
-<center><small>Copyright&copy; <a href="top.html">Sample Online Shop</a>　All Rights Reserved.</small>
-<span class="pr"><a href="http://template-party.com/" target="_blank">Web Design:Template-Party</a></span>
+	<div id="contents">
 
-</footer>
+	<div id="main">
+	<h2 class="type1">カート</h2>
+		<c:forEach var="product" items="${sessionScope.cart}">
+			<h3>${product.productName}</h3>
+			<section align="left" id="info_section">
+				<figure>
+					<section class="list">
+						<a href="${pageContext.request.contextPath}/front/productdetail">
+							<figure><img src="${pageContext.request.contextPath}/images/${product.productImagePath}" alt="${product.productName}" align="left"></figure>
+						</a>
+					</section>
+					<span style="font-size: 16px;"> 色/${product.productColor}</span>
+					<span style="font-size: 16px;"> サイズ/${product.productSize}</span><br>
+					<span style="font-size: 16px;"> 注文数/${product.count}</span><br>
+					<p><font size="3"><em>&yen;${product.productPrice}(税込)</em></font></p>
+					
+				</figure>
+			</section>
+			<section align="right" id="section_button">
+					<p id="deleteButton">
+						<form action="${pageContext.request.contextPath}/front/deletecart" method="post">
+							<input type="hidden" name="productid" value="${product.productId}">
+							<input type="submit" value="削除する">
+						</form>
+					</p>
+					<p id="editButton">
+						<form action="${pageContext.request.contextPath}/front/editcart" method="post">
+							<input type="hidden" name="productid" value="${product.productId}">
+							<input type="number" name="itemcount" value="1">注文数
+							<input type="submit" value="注文数変更">
+						</form>
+					</p>
+			</section>
+		</c:forEach><br><br><br><br>
+	<section id="buyButton">
+	<p>p</p>
+	</section>.
+	<section id="price">
+		
+	</section>
+	</div><!--/sub-->
+
+	<p id="pagetop"><a href="#">↑ PAGE TOP</a></p>
+
+	</div><!--/contents-->
+	</div><!--/container-->
+
+	<footer>
+		<div class="footermenu">
+			<ul>
+				<a href="${pageContext.request.contextPath}/front/companyinfo">会社概要　　　</a>
+				<a href="${pageContext.request.contextPath}/front/tos">　　　利用規約</a>
+				<a href="${pageContext.request.contextPath}/front/sitemap">　　　サイトマップ</a>
+				<a href="${pageContext.request.contextPath}/front/privacypolicy">　　　個人情報保護方針</a>
+				<a href="${pageContext.request.contextPath}/front/deal">　　　特定商取引法</a>
+				<a href="${pageContext.request.contextPath}/front/contact">　　　お問い合わせ</a>
+				<a href="${pageContext.request.contextPath}/front/question">　　　Q&A</a><br><br>
+			</ul>
+		</div>
+	</footer>
+
+		<!--スライドショースクリプト-->
+		<script type="text/javascript" src="${pageContext.request.contextPath}/js/slide_simple_pack.js"></script>
+
+		<!--スマホ用更新情報-->
+		<script type="text/javascript">
+			if (OCwindowWidth() < 480) {
+				open_close("newinfo_hdr", "newinfo");
+			}
+		</script>
+		<!--トップ表示-->
+		<script>
+			function showTop(){
+				location.href = "${pageContext.request.contextPath}/front/top";
+			}
+		</script>
+		<input type="hidden" value="${sessionScope.login}" id="memberid">
+		<input type="hidden" value="${data.cartInfo}" id="cartInfo">
+	</body>
+	<script>
+		var arr = document.getElementById("memberid").value;
+		var cardInfo = document.getElementById("cardInfo").value;
+		parseInt(arr);
+		
+		if(cardInfo == 'cartPresence'){
+			if(arr >0){
+				document.getElementById("buyButton").innerHTML = "<h1>購入する</h1><form action=\"${pageContext.request.contextPath}/front/memberorder\" method=\"post\"><input type=\"submit\" value=\"購入する\"></form>";
+				document.getElementById("usermenu").innerHTML = "<a href=\"${pageContext.request.contextPath}/front/mypage\">マイページ</a>&nbsp;<a href=\"${pageContext.request.contextPath}/front/logoutcomp\">ログアウト</a>";	
+
+			}else{
+				document.getElementById("buyButton").innerHTML = "<h1>会員登録せず購入</h1><a href=\"${pageContext.request.contextPath}/front/nonmemberorder\"><img src=\"${pageContext.request.contextPath}/images/no_member.png\" width=\"240\" height=\"80\" alt=\"New Menber Resist\"></a><h1>ログインして購入</h1><form action=\"${pageContext.request.contextPath}/front/cartlogin\" method=\"post\"><th>Email</th><td><input type=\"email\" name=\"email\" size=\"24\"></td><th>Password</th><td><input type=\"password\" name=\"pass\" minlength=\"8\" value=\"\" size=\"24\"><br></td><p><input type=\"submit\" value=\"ログイン\"></p><br>";
+				document.getElementById("usermenu").innerHTML = "<a href=\"${pageContext.request.contextPath}/front/userentry\">会員登録</a>&nbsp;<a href=\"${pageContext.request.contextPath}/front/login\">ログイン</a>";
+			}
+		}else{
+			document.getElementById("buyButton").innerHTML = "<p>カート内に商品は存在していません。</p>";
+		}
+	</script>
 </html>
