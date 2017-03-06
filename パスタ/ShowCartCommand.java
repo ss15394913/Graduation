@@ -26,22 +26,19 @@ public class ShowCartCommand extends AbstractCommand {
 	public ResponseContext execute(ResponseContext responseContext)
 	throws LogicException{
 		RequestContext req = getRequestContext();
-		
+		HashMap<String,String> cartInfo = new HashMap<String,String>();
 		if(req.getSessionAttribute( "cart" ) != null){
 			System.out.println("cartありますif");
+			cartInfo.put("cartInfo",new String("cartpresence"));
 		}else{
 			System.out.println("cartなかったよif");
+			cartInfo.put("cartInfo",new String("noncartpresence"));
 		}
 		
 		List cart = (ArrayList)req.getSessionAttribute( "cart" );
 		Map<String,String> productInformation = new HashMap<String,String>();
 		
 		Map<String, Integer> countProductsInfo = new HashMap<String, Integer>()
-		
-		HashMap<String,String> cardInfo = new HashMap<String,String>();
-		
-		cardInfo.put("cardInfo",new String("cartpresence"));
-		
 		
 		System.out.println("カートのサイズは"+cart.size()+"です");
 		
