@@ -32,16 +32,14 @@ public class LogInCheckFilter implements Filter {
 	/* 実際に動くやつ */
 	public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain)
 	throws ServletException, IOException {
-//		System.out.println("--LogInCheckFilter--");
 
 		/* セッションからログイン情報を取得 */
 		HttpSession session = ((HttpServletRequest)req).getSession();
 		String login = (String)session.getAttribute("login");
-//		System.out.println("login=" + login);
 
 		/* 未ログイン・ログインに失敗した場合、
 			セッションに移動先情報を登録し再度ログイン画面へ飛ばす */
-		if(login == null || "".equals(login) || "NG".equals(login)) {
+		if(login == null || "".equals(login)) {
 			RequestDispatcher dis = req.getRequestDispatcher("/WEB-INF/jsp/filterlogin.jsp");
 
 			/* ある時点でのログインフィルターで、一回以上ログインに失敗した場合
@@ -50,7 +48,6 @@ public class LogInCheckFilter implements Filter {
 				session.setAttribute
 					("target", (((HttpServletRequest)req).getPathInfo()));
 			}
-//			System.out.println("target="+session.getAttribute("target"));
 			dis.forward(req, res);
 		/* ログイン済の場合、元の移動先へ飛ばす */
 		}else {

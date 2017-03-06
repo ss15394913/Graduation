@@ -1,5 +1,5 @@
 /*
-  @ author ‰F’Ã–ìŒõ
+  @ author å®‡æ´¥é‡Žå…‰
 */
 
 package bean;
@@ -7,7 +7,7 @@ package bean;
 import java.io.Serializable;
 
 public class FavoriteBean implements Serializable{
-	
+
 	private int memberId;
 	private String productId;
 

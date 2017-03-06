@@ -1,37 +1,41 @@
 package command;
 
+import bean.FavoriteBean;
+import dao.AbstractDaoFactory;
+import dao.FavoriteDao;
+import ex.IntegrationException;
 import ex.LogicException;
 import logic.RequestContext;
 import logic.ResponseContext;
 /**
- *@author ‰Í–ì
+ *@author æ²³é‡
  *@date 2017/01/31
  */
 public class AddFavoriteCommand extends AbstractCommand{
 
 	public ResponseContext execute( ResponseContext responseContext )
 	throws LogicException{
-		/*eƒNƒ‰ƒX‚Ìƒƒ\ƒbƒh‚ğ—˜—p‚µRequestContext‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ğæ“¾*/
+		/*è¦ªã‚¯ãƒ©ã‚¹ã®ãƒ¡ã‚½ãƒƒãƒ‰ã‚’åˆ©ç”¨ã—RequestContextã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’å–å¾—*/
 		RequestContext requestContext = getRequestContext();
 
 		FavoriteBean favorite = new FavoriteBean();
-		/*‚¨‹C‚É“ü‚è•\‚É’Ç‰Á‚·‚é¤•i‚ÌID‚ğæ“¾‚µŠi”[--------*/
+		/*ãŠæ°—ã«å…¥ã‚Šè¡¨ã«è¿½åŠ ã™ã‚‹å•†å“ã®IDã‚’å–å¾—ã—æ ¼ç´--------*/
 		favorite.setProductId( (String)requestContext.getParameter("productId")[0]);
 
-		/*‚¨‹C‚É“ü‚è•\‚É’Ç‰Á‚·‚é‰ïˆõ‚ÌID‚ğæ“¾*/
+		/*ãŠæ°—ã«å…¥ã‚Šè¡¨ã«è¿½åŠ ã™ã‚‹ä¼šå“¡ã®IDã‚’å–å¾—*/
 		String id = (String)requestContext.getSessionAttribute("login");
 		int memberId = Integer.parseInt(id);
 
-		/*‚¨‹C‚É“ü‚è•\‚É’Ç‰Á‚·‚é‰ïˆõ‚ÌID‚ğŠi”[*/
+		/*ãŠæ°—ã«å…¥ã‚Šè¡¨ã«è¿½åŠ ã™ã‚‹ä¼šå“¡ã®IDã‚’æ ¼ç´*/
 		favorite.setMemberId(memberId);
 
 		try{
 
-		/*‚¨‹C‚É“ü‚è’Ç‰Áˆ—[[[[[[[[[[[[[[[[[[[[[[[[*/
+		/*ãŠæ°—ã«å…¥ã‚Šè¿½åŠ å‡¦ç†ãƒ¼ãƒ¼ãƒ¼ãƒ¼ãƒ¼ãƒ¼ãƒ¼ãƒ¼ãƒ¼ãƒ¼ãƒ¼ãƒ¼ãƒ¼ãƒ¼ãƒ¼ãƒ¼ãƒ¼ãƒ¼ãƒ¼ãƒ¼ãƒ¼ãƒ¼ãƒ¼ãƒ¼*/
 			AbstractDaoFactory factory = AbstractDaoFactory.getFactory();
-			/*FavoriteDaoŒ^‚Ì•Ï”‚É‚ÉOraFavoriteDaoƒCƒ“ƒXƒ^ƒ“ƒX‚ğ“ü‚ê‚é*/
+			/*FavoriteDaoå‹ã®å¤‰æ•°ã«ã«OraFavoriteDaoã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’å…¥ã‚Œã‚‹*/
 			FavoriteDao favoriteDao = factory.getFavoriteDao();
-			/*Favorite•\‚É’Ç‰Á*/
+			/*Favoriteè¡¨ã«è¿½åŠ */
 			favoriteDao.addFavorite(favorite);
 
 		}catch(IntegrationException e){

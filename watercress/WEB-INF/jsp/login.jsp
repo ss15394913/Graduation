@@ -48,7 +48,7 @@
 
 				
 		<br>
-		<center>
+		<div align="center">
 			<table>
 				<tr>
 					<th><h2>${sessionScope.message1}</h2></th>
@@ -60,6 +60,6 @@
 					<td><h3>${sessionScope.message3}</h3></td>
 				</tr>
 			</table>
-		</center>
+		</div>
 	</body>
 </html>

@@ -977,11 +977,7 @@ body.s-n #sub {
 
 }
 
-span.favo {
-	font-size: 24px;	/*文字サイズ*/
-	color: #000;	/*文字色*/
-	background: #FFFF;	/*背景色*/
-	text-align: center;
+.favoButton {
 	display: block;
 	width: 48px;
 	position: absolute;

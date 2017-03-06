@@ -86,101 +86,103 @@
 			</nav><br/><br/><br/>
 			
 			<section id="main">
-			
-			<h2 class="mb15" style="font-size:25px;">商品一覧</h2>
-			
-			<div>
-				<!--検索フォームの初期値を設定する-->
-				<c:if test="${paramValues.sort[0] == 'nameAsc'}">
-					<c:set var="nameAsc" value="selected" />
-				</c:if>
-				<c:if test="${paramValues.sort[0] == 'nameDesc'}">
-					<c:set var="nameDesc" value="selected" />
-				</c:if>
-				<c:if test="${paramValues.sort[1] == 'priceAsc'}">
-					<c:set var="priceAsc" value="selected" />
-				</c:if>
-				<c:if test="${paramValues.sort[1] == 'priceDesc'}">
-					<c:set var="priceDesc" value="selected" />
-				</c:if>
-				<c:if test="${paramValues.sort[2] == 'purchaseAsc'}">
-					<c:set var="purchaseAsc" value="selected" />
-				</c:if>
-				<c:if test="${paramValues.sort[2] == 'purchaseDesc'}">
-					<c:set var="purchaseDesc" value="selected" />
-				</c:if>
-				<c:if test="${param.searchTag=='セール'}">
-					<c:set var="saleTag" value="selected" />
-				</c:if>
-				<c:if test="${param.searchTag=='冬季限定'}">
-					<c:set var="winterOnlyTag" value="selected" />
-				</c:if>
 				
+				<h2 class="mb15" style="font-size:25px;">商品一覧</h2>
 				
-				<form action="productlist" method="get">
-					<input type="hidden" name="category" value="${param.category}">
-					<input type="hidden" name="subCategory" value="${param.subCategory}">
-					<input type="hidden" name="pageNumber" value="1">
-					<h3>検索</h3>
-					名前<input type="text" name="searchText" size="40" value="${param.searchText}">
-					タグ<select name="searchTag">
+				<div>
+					<!--検索フォームの初期値を設定する-->
+					<c:if test="${paramValues.sort[0] == 'nameAsc'}">
+						<c:set var="nameAsc" value="selected" />
+					</c:if>
+					<c:if test="${paramValues.sort[0] == 'nameDesc'}">
+						<c:set var="nameDesc" value="selected" />
+					</c:if>
+					<c:if test="${paramValues.sort[1] == 'priceAsc'}">
+						<c:set var="priceAsc" value="selected" />
+					</c:if>
+					<c:if test="${paramValues.sort[1] == 'priceDesc'}">
+						<c:set var="priceDesc" value="selected" />
+					</c:if>
+					<c:if test="${paramValues.sort[2] == 'purchaseAsc'}">
+						<c:set var="purchaseAsc" value="selected" />
+					</c:if>
+					<c:if test="${paramValues.sort[2] == 'purchaseDesc'}">
+						<c:set var="purchaseDesc" value="selected" />
+					</c:if>
+					<c:if test="${param.searchTag=='セール'}">
+						<c:set var="saleTag" value="selected" />
+					</c:if>
+					<c:if test="${param.searchTag=='冬季限定'}">
+						<c:set var="winterOnlyTag" value="selected" />
+					</c:if>
+					
+					
+					<form action="productlist" method="get">
+						<input type="hidden" name="category" value="${param.category}">
+						<input type="hidden" name="subCategory" value="${param.subCategory}">
+						<input type="hidden" name="pageNumber" value="1">
+						<h3>検索</h3>
+						名前<input type="text" name="searchText" size="40" value="${param.searchText}">
+						タグ<select name="searchTag">
+								<option value=""></option>
+								<option value="冬季限定" ${pageScope.winterOnlyTag}>冬季限定</option>
+								<option value="セール" ${pageScope.saleTag}>セール</option>
+							</select><br/>
+						並び替え<br/>
+						
+						名前順
+						<select name="sort">
 							<option value=""></option>
-							<option value="冬季限定" ${pageScope.winterOnlyTag}>冬季限定</option>
-							<option value="セール" ${pageScope.saleTag}>セール</option>
-						</select><br/><br/>
-					<h3>並び替え</h3>
-					名前順
-					<select name="sort">
-						<option value=""></option>
-						<option value="nameAsc" ${pageScope.nameAsc}>五十音順</option>
-						<option value="nameDesc" ${pageScope.nameDesc}>五十音の逆順</option>
-					</select>
-					値段順
-					<select name="sort">
-						<option value=""></option>
-						<option value="priceAsc" ${pageScope.priceAsc}>値段の安い順</option>
-						<option value="priceDesc" ${pageScope.priceDesc}>値段の高い順</option>
-					</select>
-					購入数順
-					<select name="sort">
-						<option value=""></option>
-						<option value="purchaseDesc" ${pageScope.purchaseDesc}>購入数が多い順</option>
-						<option value="purchaseAsc" ${pageScope.purchaseAsc}>購入数が少ない順</option>
-					</select>
-					<input type="submit" value="検索">
-				</form>
-			</div>
-			<h3>
-				<c:if test="${param.subCategory!=null}">
-					${param.subCategory}
-				</c:if>
-				<c:if test="${param.category!=null}">
-					${param.category}
-				</c:if>
-				<c:if test="${param.searchTag=='セール'}">
-					セール中の商品
-				</c:if>
-				<c:if test="${param.searchTag=='冬季限定'}">
-					冬季限定の商品
-				</c:if>
-				<c:if test="${param.category==null}">
+							<option value="nameAsc" ${pageScope.nameAsc}>五十音順</option>
+							<option value="nameDesc" ${pageScope.nameDesc}>五十音の逆順</option>
+						</select>
+						値段順
+						<select name="sort">
+							<option value=""></option>
+							<option value="priceAsc" ${pageScope.priceAsc}>値段の安い順</option>
+							<option value="priceDesc" ${pageScope.priceDesc}>値段の高い順</option>
+						</select>
+						購入数順
+						<select name="sort">
+							<option value=""></option>
+							<option value="purchaseDesc" ${pageScope.purchaseDesc}>購入数が多い順</option>
+							<option value="purchaseAsc" ${pageScope.purchaseAsc}>購入数が少ない順</option>
+						</select>
+						<input type="submit" value="検索">
+					</form>
+				</div>
+				
+				<h3>
+					<c:if test="${param.subCategory!=null}">
+						${param.subCategory}
+					</c:if>
+					<c:if test="${param.category!=null}">
+						${param.category}
+					</c:if>
+					<c:if test="${param.searchTag=='セール'}">
+						セール中の商品
+					</c:if>
+					<c:if test="${param.searchTag=='冬季限定'}">
+						冬季限定の商品
+					</c:if>
 					<c:if test="${param.category==null}">
-						<c:if test="${param.searchTag==null}">
-							全ての商品
+						<c:if test="${param.category==null}">
+							<c:if test="${param.searchTag==null}">
+								全ての商品
+							</c:if>
 						</c:if>
 					</c:if>
-				</c:if>
-				<c:if test="${param.sort == 'purchaseDesc'}">
-					購入数ランキング
-				</c:if>
-			</h3>
-			
-			<!-- テスト用パラメータ取得
-				選択カテゴリ：${param.category}
-				選択サブカテゴリ：${param.subCategory}
-				並べ替え：${paramValues.sort[0]} ${paramValues.sort[1]} ${paramValues.sort[2]}
-			-->
-			
+					<c:if test="${param.sort == 'purchaseDesc'}">
+						購入数ランキング
+					</c:if>
+				</h3>
+				
+				<!-- テスト用パラメータ取得
+					選択カテゴリ：${param.category}
+					選択サブカテゴリ：${param.subCategory}
+					並べ替え：${paramValues.sort[0]} ${paramValues.sort[1]} ${paramValues.sort[2]}
+				-->
+				
 			</section>
 			
 			<%
@@ -225,14 +227,26 @@
 										<span class="sumi">SOLD OUT</span>
 									</c:if>
 									<!-- 売り切れの表示 -->
-									<%
-										request.getAttribute("data");
-									%>
+									<c:if test="${product.isFavorite == false}">
+									<div name="favorite">
 									<form action="productlist" method="get" onsubmit="return false;">
 										<input type="image" src="${pageContext.request.contextPath}/images/nonfavo.png" 
 											data-condition=false name="${product.catalog.exampleProductId}" class="favoButton">
 									</form>
+									<!-- /favorite -->
+									</div>
+									</c:if>
 									
+									<c:if test="${product.isFavorite == true}">
+									<div name="favorite">
+									<form action="productlist" method="get" onsubmit="return false;">
+										<input type="image" src="${pageContext.request.contextPath}/images/favo.png" 
+											data-condition=true name="${product.catalog.exampleProductId}" class="favoButton">
+									</form>
+									<!-- /favorite -->
+									</div>
+									</c:if>
+									<%out.print("<script>var arr = document.getElementById(\"memberid\").value;parseInt(arr);if(arr <=0){document.getElementsByName(\"favorite\")[" + cnt + "].innerHTML = \"\";}</script>");cnt ++;%>
 									</figure>
 									<h4 style="position: absolute">${product.catalog.productName}
 									<br/> ￥${product.catalog.productPrice}<br/></h4>

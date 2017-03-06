@@ -111,7 +111,6 @@
 							<a href="${pageContext.request.contextPath}/front/productdetail?productName=${newProduct.productName}">
 								<figure><img src="${pageContext.request.contextPath}/images/<%= newProductImage.get(count) %>" alt="商品名"></figure>
 								<h4>${newProduct.productName}《${newProduct.productPrice}円》</h4>
-								
 							</a>
 						</section>
 
@@ -129,7 +128,6 @@
 							<a href="${pageContext.request.contextPath}/front/productdetail?productName=${saleProduct.productName}">
 								<figure><img src="${pageContext.request.contextPath}/images/<%= saleProductImage.get(count) %>" alt="商品名"></figure>
 								<h4>${saleProduct.productName}《${saleProduct.productPrice}円》</h4>
-								
 							</a>
 						</section>
  
@@ -148,7 +146,6 @@
 							<a href="${pageContext.request.contextPath}/front/productdetail?productName=${rankingProduct.productName}">
 								<figure><img src="${pageContext.request.contextPath}/images/<%= rankingProductImage.get(count) %>" alt="商品名"></figure>
 								<h4>${rankingProduct.productName}《${rankingProduct.productPrice}円》</h4>
-								
 							</a>
 						</section>
 
