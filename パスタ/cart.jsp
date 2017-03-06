@@ -17,20 +17,35 @@
 		<style>.ddmenu {display: none;}</style>
 	<![endif]-->
 		<script type="text/javascript" src="${pageContext.request.contextPath}/js/openclose.js"></script>
-		<script type="text/javascript" src="${pageContext.request.contextPath}/ddmenu_min.js"></script>
+		<script type="text/javascript" src="${pageContext.request.contextPath}/js/ddmenu_min.js"></script>
+		<style>
+			#deleteButton{
+				align:right;
+			}
+			#editButton{
+				align:right;
+			}
+			#section_button{
+				margin-right:100px;
+				align:top;
+			}
+			#info_section{
+				float:left;
+			}
+		</style>
+	
 	</head>
-
+	<input type=”hidden” value="${sessionScope.login}">
+	
 	<body id="top" class="c1">
 		<div id="container">
 
 		<header>
 			<h1 id="logo">
-				<a href="${pageContext.request.contextPath}/front/top">
-					<img src="${pageContext.request.contextPath}/images/logo.png" width="370" height="60" alt="Sample Online Shop">
-				</a>
+				<img src="${pageContext.request.contextPath}/images/logo.png" width="275" alt="Sample Online Shop" onclick="showTop()">
 			</h1>
 			<div class="headermenu">
-				<ul>
+					<ul id="usermenu">
 					<a href="${pageContext.request.contextPath}/front/userentry">会員登録</a>
 					<a href="${pageContext.request.contextPath}/front/login">ログイン</a>
 				</ul>
@@ -41,25 +56,35 @@
 
 		<nav id="menubar">
 			<ul>
+				
 				<li class="arrow">
 					<a>CATEGORY</a>
-						<ul class="ddmenu">
-							<li><a href="${pageContext.request.contextPath}/front/productlist">TOPS</a></li>
-							<li><a href="${pageContext.request.contextPath}/front/productlist">BOTTOMS</a></li>
-							<li><a href="${pageContext.request.contextPath}/front/productlist">UNDER</a></li>
-							<li><a href="${pageContext.request.contextPath}/front/productlist">SHOES</a></li>
-							<li><a href="${pageContext.request.contextPath}/front/productlist">ACCESSORIES</a></li>
-						</ul>
+					<ul class="ddmenu">
+						<li><a href="${pageContext.request.contextPath}/front/productlist?category=tops">TOPS</a></li>
+						<li><a href="${pageContext.request.contextPath}/front/productlist?category=bottoms">BOTTOMS</a></li>
+						<li><a href="${pageContext.request.contextPath}/front/productlist?category=under">UNDER</a></li>
+						<li><a href="${pageContext.request.contextPath}/front/productlist?category=shoes">SHOES</a></li>
+						<li><a href="${pageContext.request.contextPath}/front/productlist?category=accessories">ACCESSORIES</a></li>
+					</ul>
 				</li>
-				<li class="arrow"><a href="${pageContext.request.contextPath}/front/productlist">SALE</a></li>
-				<li class="arrow"><a href="${pageContext.request.contextPath}/front/productlist">RANKING</a></li>
-				<li class="arrow"><a href="${pageContext.request.contextPath}/front/productlist">ALLITEM</a></li>
+                
+				<li class="arrow">
+					<a href="${pageContext.request.contextPath}/front/productlist?searchTag=セール">SALE</a>
+				</li>
+
+				<li class="arrow">
+					<a href="${pageContext.request.contextPath}/front/productlist?sort=purchaseDesc">RANKING</a>
+				</li>
+                
+				<li class="arrow">
+					<a href="${pageContext.request.contextPath}/front/productlist">ALLITEM</a>
+				</li>
+                
 				<li class="arrow">
 					<a>HELP</a>
-					<ul class="ddmenu">
+					<ul class="ddmenu">//koko
 						<li><a href="${pageContext.request.contextPath}/front/contact">お問い合わせ</a></li>
 						<li><a href="${pageContext.request.contextPath}/front/question">Q&A</a></li>
-					</ul>
 				</li>
 			</ul>
 		</nav>
@@ -69,57 +94,57 @@
 	<div id="main">
 	<h2 class="type1">カート</h2>
 		<c:forEach var="product" items="${sessionScope.cart}">
-			<section>
-				<h3>${product.productName}</h3>
-				<section class="list">
-					<a href="${pageContext.request.contextPath}/front/productdetail">
-						<figure><img src="${pageContext.request.contextPath}/images/${product.productImagePath}" alt="${product.productName}"></figure>
-					</a>
-				</section>
-				<span style="font-size: 21px;"> color/${product.productColor}</span>
-				<span style="font-size: 21px;"> size/${product.productSize}</span>
-				<p><font size="3"><em>　\"${product.productPrice}"(税込)</em></font></p>
-				<span>　数量</span>
-				<select name="number">
-					<option value="one">1</option>
-					<option value="two">2</option>
-					<option value="three">3</option>
-				</select>
-				<span id="type1_right">
-					<p><input type="button" value="削除"></p>
-				</span>
-				<p><input type="button" value="編集"></p>
-				<span>　数量</span>
-				<select name="number">
-					<option value="one">1</option>
-					<option value="two">2</option>
-					<option value="three">3</option>
-				</select>
-				<span id="type1_right">
-				<form action="${pageContext.request.contextPath}/front/deletecart" method="post">
-					<input type="hidden" name="productid" value="${product.productId}">商品ID
-					<input type="submit" value="商品をカートから削除">
-				</form>
-				</span>
-				<form action="${pageContext.request.contextPath}/front/editcart" method="post">
-					<input type="hidden" name="productid" value="${product.productId}">
-					<input type="number" name="itemcount" value="5">注文数
-					<input type="submit" value="注文数を変更">
-				</form>
+			<h3>${product.productName}</h3>
+			<section align="left" id="info_section">
+				<figure>
+					<section class="list">
+						<a href="${pageContext.request.contextPath}/front/productdetail">
+							<figure><img src="${pageContext.request.contextPath}/images/${product.productImagePath}" alt="${product.productName}" align="left"></figure>
+						</a>
+					</section>
+					<span style="font-size: 16px;"> 色/${product.productColor}</span>
+					<span style="font-size: 16px;"> サイズ/${product.productSize}</span><br>
+					<span style="font-size: 16px;"> 注文数/${product.count}</span><br>
+					<p><font size="3"><em>&yen;${product.productPrice}(税込)</em></font></p>
+					
+				</figure>
 			</section>
-		</c:forEach><br><br><hr><br><br>
-	<h1>ログインして購入</h1>
-		<th>Email</th>
-			<td><input type="text" name="user_id" value="" size="24"></td>
-		<th>Password</th>
-			<td><input type="password" name="password" value="" size="24"><br></td>
-
-		<p><input type="button" value="ログイン"></p><br>
+			<section align="right" id="section_button">
+					<p id="deleteButton">
+						<form action="${pageContext.request.contextPath}/front/deletecart" method="post">
+							<input type="hidden" name="productid" value="${product.productId}">
+							<input type="submit" value="削除する">
+						</form>
+					</p>
+					<p id="editButton">
+						<form action="${pageContext.request.contextPath}/front/editcart" method="post">
+							<input type="hidden" name="productid" value="${product.productId}">
+							<input type="number" name="itemcount" value="1">注文数
+							<input type="submit" value="注文数変更">
+						</form>
+					</p>
+			</section>
+		</c:forEach><br><br><br><br>
 		
-	<h1>会員登録せず購入</h1>
-		<a href="${pageContext.request.contextPath}/front/nomemberorder">
-			<img src="${pageContext.request.contextPath}/images/no_member.png" width="240" height="80" alt="New Menber Resist">
-		</a>
+		<h3>${data.countProductsInfo}</h3>
+	<section id="buyButton">
+		<h1>ログインして購入</h1>
+			<form action="${pageContext.request.contextPath}/front/cartlogin" method="post">
+				<th>Email</th>
+					<td><input type="email" name="email" value="" size="24"></td>
+				<th>Password</th>
+					<td><input type="password" name="pass" minlength="8" value="" size="24"><br></td>
+
+				<p><input type="submit" value="ログイン"></p><br>
+				
+		<h1>会員登録せず購入</h1>
+			<a href="${pageContext.request.contextPath}/front/nonmemberorder">
+				<img src="${pageContext.request.contextPath}/images/no_member.png" width="240" height="80" alt="New Menber Resist">
+			</a>
+	</section>
+	<section id="price">
+		
+	</section>
 	</div><!--/sub-->
 
 	<p id="pagetop"><a href="#">↑ PAGE TOP</a></p>
@@ -141,15 +166,29 @@
 		</div>
 	</footer>
 
-<!--スライドショースクリプト-->
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/slide_simple_pack.js"></script>
+		<!--スライドショースクリプト-->
+		<script type="text/javascript" src="${pageContext.request.contextPath}/js/slide_simple_pack.js"></script>
 
-<!--スマホ用更新情報-->
-<script type="text/javascript">
-	if (OCwindowWidth() < 480) {
-		open_close("newinfo_hdr", "newinfo");
-	}
-</script>
-
-</body>
+		<!--スマホ用更新情報-->
+		<script type="text/javascript">
+			if (OCwindowWidth() < 480) {
+				open_close("newinfo_hdr", "newinfo");
+			}
+		</script>
+		<!--トップ表示-->
+		<script>
+			function showTop(){
+				location.href = "${pageContext.request.contextPath}/front/top";
+			}
+		</script>
+	</body>
+	<script>
+		var arr = document.getElementById("memberid").value;
+		parseInt(arr);
+		if(arr >0){
+			document.getElementById("usermenu").innerHTML = "<a href=\"${pageContext.request.contextPath}/front/mypage\">マイページ</a>&nbsp;<a href=\"${pageContext.request.contextPath}/front/logoutcomp\">ログアウト</a>";	
+		}else{
+			document.getElementById("usermenu").innerHTML = "<a href=\"${pageContext.request.contextPath}/front/userentry\">会員登録</a>&nbsp;<a href=\"${pageContext.request.contextPath}/front/login\">ログイン</a>";
+		}
+	</script>
 </html>

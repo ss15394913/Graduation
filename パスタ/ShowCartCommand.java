@@ -36,7 +36,12 @@ public class ShowCartCommand extends AbstractCommand {
 		List cart = (ArrayList)req.getSessionAttribute( "cart" );
 		Map<String,String> productInformation = new HashMap<String,String>();
 		
-		Map<String, Integer> countProductsInfo = new HashMap<String, Integer>();
+		Map<String, Integer> countProductsInfo = new HashMap<String, Integer>()
+		
+		HashMap<String,String> cardInfo = new HashMap<String,String>();
+		
+		cardInfo.put("cardInfo",new String("cartpresence"));
+		
 		
 		System.out.println("カートのサイズは"+cart.size()+"です");
 		
