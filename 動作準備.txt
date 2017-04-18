@@ -1,0 +1,23 @@
+・Tomcatへの配備等
+
+・SQL_shopフォルダの移動(→C:\sql内)
+
+・sysかsystemユーザーで下を実行
+「@ c:\sql\SQL_shop\H27_database_main」
+※「@ c:\sql\script_info\alter_profile」ファイルが存在しているか確認
+
+・窪田\classpath.txt↓をcmdにコピー
+「set classpath=.;jar\commons-collections4-4.1.jar;jar\poi-3.15.jar;jar\poi-ooxml-3.15.jar;jar\poi-ooxml-schemas-3.15.jar;jar\xmlbeans-2.6.0.jar;jar\ojdbc14.jar」
+・「java ExcelDataToDb」実行
+(・ProductStockInserterも実行？)
+
+・member_status表の追加
+(表の作成、データの追加(0,未入会)(1,通常会員)(2,退会済み)(3,仮登録))
+
+・必要に応じてメール用jarファイル(JavaMail\メール機能で～\activation.jar、mail.jar)をlibに移動
+(Eclipse内でコンパイル時に必要になる他、実行時も必要かもしれない)
+
+
+※コンパイル時は必ずEclipseを通して行うこと
+※JavaのバージョンはJava7を使用
+※文字コードの設定に留意する(UTF-8)
